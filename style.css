@@ -1,0 +1,1612 @@
+/*Grön background: #2E5339 */
+/*Ljus textfärg: #fff5d6 */
+/*Gul accent #f7d240  */
+/* Annan grön #1f3b28 */
+
+/* ========================================
+   FONT-FACE DECLARATIONS
+   ======================================== */
+@font-face {
+  font-family: 'Kage2';
+  src: url('fonts/Kage_2.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Codesaver';
+  src: url('fonts/CodeSaver-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Shrikhand&display=swap');
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+html { width: 100%; }
+body {
+  margin: 0;
+  font-family: 'Codesaver', monospace;
+  background-color: #465946;
+  color: #fff5d6;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ========================================
+   HÖRNBADGE (SNURRANDE TEXT) – VÄNSTER
+   ======================================== */
+.corner-badge {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 200px;
+  height: 200px;
+  z-index: 10900;
+  pointer-events: none;
+}
+
+.spin-badge { width: 100%; height: 100%; display: block; }
+
+.ring-text {
+  font-family: 'Codesaver', cursive;
+  font-size: 25px;
+  letter-spacing: 0.15em;
+  fill: #fff5d6;
+  text-transform: uppercase;
+}
+
+.spin-text { animation: badgeSpin 18s linear infinite; transform-origin: 50% 50%; }
+@keyframes badgeSpin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .corner-badge { position: absolute; width: 115px; height: 115px; top: 0.6rem; left: 0.6rem; }
+  .ring-text { font-size: 24px; letter-spacing: 0.18em; }
+}
+
+/* ========================================
+   PRE-GATE / FÖR-SIDA
+   ======================================== */
+.pre-gate {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12000;
+  overflow: hidden;
+}
+
+.pre-gate.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s ease;
+}
+
+.pre-gate-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.78);
+}
+
+.pre-gate-image-desktop {
+  display: block;
+}
+
+.pre-gate-image-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pre-gate-image-desktop {
+    display: none;
+  }
+  
+  .pre-gate-image-mobile {
+    display: block;
+  }
+}
+
+.pre-gate-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 3.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.8rem 1.4rem;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.35);
+  border-radius: 0;
+  margin-top: 60px;
+}
+
+.gate-btn {
+  background: transparent;
+  color: #fff5d6;
+  font-family: 'Kage2', cursive;
+  font-size: 1.35rem;
+  padding: .75rem 2.2rem;
+  border: 2px solid #fff5d6;
+  cursor: pointer;
+  letter-spacing: .12em;
+  text-transform: none;
+  transition: background .25s ease, color .25s ease;
+}
+
+.gate-btn:hover, .gate-btn:focus {
+  background: #fff5d6;
+  color: #2E5339;
+}
+
+.gate-form {
+  display: flex;
+  gap: .9rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#gatePasswordInput {
+  background: rgba(255,245,214,0.92);
+  color: #2E5339;
+  border: 2px solid #fff5d6;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  font-family: 'Codesaver', monospace;
+  letter-spacing: .05em;
+  min-width: 220px;
+  outline: none;
+}
+
+#gatePasswordInput:focus {
+  box-shadow: 0 0 0 3px rgba(247,210,64,0.6);
+}
+
+.pre-gate-language-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 1rem;
+  gap: 0.35rem;
+  background: transparent;
+  color: #fff5d6;
+  border: 0px solid #fff5d6;
+  border-radius: 6px;
+  font-family: 'Codesaver', monospace;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease;
+  z-index: 12001;
+}
+
+.pre-gate-language-btn:hover,
+.pre-gate-language-btn:focus {
+  transform: translateX(-50%) scale(1.08);
+}
+
+.pre-gate-language-btn .globe-icon {
+  font-size: 1.1rem;
+}
+
+.pre-gate-language-btn .lang-text {
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .gate-btn { font-size: 1rem; padding: .55rem 1.4rem; }
+  #gatePasswordInput { min-width: 170px; }
+  .pre-gate-overlay { 
+    padding: 1rem 1.2rem 1.1rem; 
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    margin-top: 50px;
+  }
+  
+  .pre-gate-language-btn {
+    bottom: calc(50% - 125px);
+    height: 36px;
+    padding: 0 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ========================================
+   HEADER OCH HERO-SEKTION
+   ======================================== */
+.frontpage .page-header {
+  position: sticky;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 0;
+  z-index: 1;
+  padding-bottom: 0;
+}
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-top: -150px;
+  object-fit: contain;
+  z-index: 0;
+  padding-bottom: 0;
+}
+
+.frontpage .page-header.scrolled {
+  background: transparent !important;
+  box-shadow: none;
+}
+/* Layout container inside header on frontpage */
+.frontpage .page-header .header-inner { display:flex; align-items:center; width:100%; }
+.frontpage .page-header .header-spacer { flex:1; }
+.frontpage .page-header .header-controls { margin-left:auto; }
+
+.frontpage .page-header-logo {
+  display: none;
+}
+
+/* ========================================
+   NAVIGATION - SPRÅKKNAPP OCH HAMBURGER-MENY (SOL)
+   ======================================== */
+.language-btn {
+  position: static;
+  width: auto;
+  height: 35px;
+  padding: 0 0.8rem;
+  margin: 1.5rem auto 0;
+  border: 2px solid #f7d240;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform .3s ease, background .3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.language-btn:hover {
+  transform: scale(1.06);
+  background: rgba(247, 210, 64, 0.1);
+}
+
+.language-btn:active {
+  transform: scale(.94);
+}
+
+.globe-icon {
+  font-size: 1.2rem;
+  color: #fff5d6;
+}
+
+.lang-text {
+  color: #fff5d6;
+  font-family: 'Codesaver', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Ny hamburger knapp med tre gula streck */
+.header-controls { margin-left: auto; position: relative; display: flex; align-items: center; }
+.hamburger-btn {
+  position: relative;
+  z-index: 11000;
+  width: 78px;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  transition: transform .3s ease;
+}
+.hamburger-btn:hover { transform: scale(1.1); }
+.hamburger-btn:active { transform: scale(.94); }
+.hamburger-line {
+  width: 100%;
+  height: 4px;               /* smalare linjer */
+  background: #fff5d6;
+  border-radius: 1px;
+  transition: transform .35s ease, opacity .35s ease, width .35s ease;
+}
+/* Avstånd mellan första och tredje linjens centrum: 2*(height + gap) = 2*(4+9)=26 -> halva = 13 */
+.hamburger-btn.active .hamburger-line:nth-child(1) { transform: translateY(13px) rotate(45deg); }
+.hamburger-btn.active .hamburger-line:nth-child(2) { opacity: 0; }
+.hamburger-btn.active .hamburger-line:nth-child(3) { transform: translateY(-13px) rotate(-45deg); }
+.hamburger-btn.active .hamburger-line { width: 70%; }
+
+.hamburger-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 350px;
+  max-width: 90vw;
+  max-height: 0;
+  overflow: hidden;
+  background: #2E5339;
+  transition: max-height .5s ease, padding .5s ease;
+  z-index: 10990;
+  padding: 0 2.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hamburger-menu.active { 
+  max-height: 600px;
+  padding: 2rem 2.5rem 2rem;
+}
+
+/* Logo inside hamburger menu */
+.hamburger-menu .menu-logo {
+  width: 80%; /* samma bredd som vågiga strecken (li::after width:80%) */
+  margin: 0.5rem auto 1.2rem;
+}
+.hamburger-menu .menu-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.hamburger-menu ul li {
+  position: relative;
+  text-align: center;
+}
+
+.hamburger-menu ul li::after {
+  content: '';
+  display: block;
+  margin: 0.8rem auto 0;
+  width: 80%;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,2 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 T110,10 T120,10 T130,10 T140,10 T150,10 T160,10 T170,10 T180,10 T190,10 T200,10' stroke='%23efbc22' fill='none' stroke-width='2.5'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: repeat-x;
+}
+
+.hamburger-menu ul li:last-child::after {
+  display: none;
+}
+
+.hamburger-menu ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff5d6;
+  text-decoration: none;
+  font-family: 'Codesaver', monospace;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hamburger-menu ul li a:hover {
+  transform: scale(1.05);
+  color: #f7d240;
+}
+
+
+
+@media (min-width: 769px) {
+  .hamburger-menu {
+    width: 380px;
+    top: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 92vw;
+    max-width: 420px;
+    height: 92vh;
+    background: #2E5339;
+    z-index: 12000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+    margin: 4vh auto 0 auto;
+    right: 0; left: 0;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px) scale(0.98);
+    transition: opacity 0.3s, transform 0.3s;
+    overflow-y: auto;
+  }
+  .hamburger-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  .hamburger-menu .menu-logo {
+    width: 70vw;
+    margin: 0.2rem auto 1rem auto;
+  }
+  .hamburger-menu .menu-logo img {
+    width: 100%;
+    height: auto;
+  }
+  .hamburger-menu ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .hamburger-menu ul li {
+    width: 100%;
+  }
+  .hamburger-menu ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    font-size: 1.1rem;
+    color: #fff5d6;
+    background: none;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Codesaver', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.18s, color 0.18s;
+  }
+  .hamburger-menu ul li a:active,
+  .hamburger-menu ul li a:focus {
+    background: #f7d240;
+    color: #2E5339;
+  }
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 11999;
+    display: none;
+    cursor: pointer;
+  }
+  .header-controls .hamburger-menu.active ~ .menu-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .language-btn {
+    height: 36px;
+    padding: 0 0.6rem;
+    gap: 0.3rem;
+    margin-top: 1rem;
+  }
+  .globe-icon {
+    font-size: 1rem;
+    color: #f7d240;
+  }
+  .lang-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburger-btn { width: 50px; padding: 6px 6px; gap: 7px; }
+  .hamburger-menu { width: calc(100vw - 2rem); }
+  .hamburger-menu .menu-logo { width: 80%; }
+  .hamburger-menu .menu-logo img { width: 100%; }
+}
+
+.hamburger-btn--outline { background: transparent; box-shadow: none; }
+
+
+/* ========================================
+   RWANDA SIDA - BILD OCH FAKTARUTA
+   ======================================== */
+.page-content .content-section h2[data-i18n="page3-title"] {
+  text-align: center;
+  font-size: 5.5rem;
+}
+
+/* Desktop: sida vid sida */
+@media (min-width: 769px) {
+  .page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+  }
+  
+  .rwanda-map-section {
+    flex: 1;
+    max-width: 33.33%;
+    margin: 2rem 0;
+    padding: 0 1rem;
+  }
+  
+  .rwanda-facts-section {
+    flex: 2;
+    max-width: 66.67%;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    border-radius: 4px;
+  }
+}
+
+/* Mobil: staplat */
+@media (max-width: 768px) {
+  .rwanda-map-section {
+    max-width: 100%;
+    margin: 0.8rem auto 1.4rem; /* flytta upp kartan, mindre tomrum */
+    padding: 0 1.5rem; /* lite mindre sidopadding ger mer plats */
+  }
+  
+  .rwanda-facts-section {
+    max-width: 100%;
+    margin: 1.4rem auto 2rem; /* något tajtare före nästa sektion */
+    padding: 0 1.5rem;
+  }
+}
+
+.rwanda-map {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.rwanda-facts {
+  background: #fff3c0;
+  padding: 1.5rem;
+  border-radius: 4px;
+  height: 100%;
+}
+
+.rwanda-facts h3 {
+  font-family: 'Kage2', cursive;
+  font-size: 1.8rem;
+  color: #2E5339;
+  margin: 0 0 1rem 0;
+}
+
+/* Grön rubrik för "Att göra i Rwanda" (h2 inne i rwanda-facts) */
+.rwanda-facts h2[data-i18n="page3-activities-title"] {
+  font-family: 'Kage2', cursive;
+  font-size: 2rem;
+  color: #2E5339;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+/* Underrubrik under Att göra i Rwanda */
+.rwanda-facts .activities-subtitle {
+  margin: -0.4rem 0 1.1rem 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: #2E5339;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.rwanda-facts ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+  color: #2E5339;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.rwanda-facts ul li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .rwanda-info-block {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .rwanda-image {
+    min-width: 100%;
+  }
+  
+  .rwanda-facts {
+    padding: 1.2rem;
+  }
+  
+  .rwanda-facts h3 {
+    font-size: 1.5rem;
+  }
+  
+  .rwanda-facts ul {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   INFORMATIONSSEKTION - TEXTBLOCK
+   ======================================== */
+.info-section {
+  padding: 30px 10px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.info-block {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.info-block h2 {
+  font-family: 'Kage2', cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #f7d240;
+  font-weight: 50;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+
+.info-block p {
+  font-size: 1.125rem;
+  color: #fff5d6;
+}
+
+@media (max-width: 768px) {
+  .info-block h2 {
+    font-size: 2rem;
+  }
+  
+  .info-block p {
+    font-size: 1rem;
+  }
+}
+
+
+/* ========================================
+   BILDLÄNKAR - TRE KLICKBARA BILDER
+   ======================================== */
+.image-links {
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  margin: 2.5rem 0 0rem 0;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.image-link img {
+  width: 320px;
+  max-width: 35vw;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.image-link img:hover,
+.image-link img:focus {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+}
+
+@media (max-width: 700px) {
+  .image-link img {
+    width: 80vw;
+    max-width: 350px;
+  }
+  
+  .image-links {
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+
+/* ========================================
+   CALL TO ACTION - GUL KLICKBAR RUTA
+   ======================================== */
+.link-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 1050px;
+  margin: 1rem auto 5rem;
+  padding: 1rem 1.25rem;
+  background: #f7d240;
+  color: #2E5339;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em; 
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  font-family: 'Kage2', cursive; 
+}
+
+.mobile-line {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .link-banner {
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    font-size: 2.25rem;
+    width: 70vw;
+    max-width: 350px;
+    margin: 0.5rem auto 5rem;
+    text-align: center;
+    line-height: 0.8;
+    word-break: break-word;
+    hyphens: auto;
+    white-space: normal;
+  }
+  .desktop-symbols {
+    display: none;
+  }
+  .mobile-line {
+    display: block;
+  }
+  .info-block h2, .info-block p {
+    word-break: break-word;
+    hyphens: auto;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
+
+.link-banner:hover,
+.link-banner:focus-visible {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+  outline: none;
+}
+
+.link-banner span {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ========================================
+   FOOTER - AVSLUTANDE SEKTION
+   ======================================== */
+.footer {
+  background: #f7d240;
+  color: #2E5339;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  margin-top: 3rem;
+  flex-shrink: 0;
+}
+.footer-content h2 {
+  font-family: 'Kage2', cursive;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.footer-content p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #2E5339;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+
+/* ========================================
+   EASTER EGG - TRIGGER OCH POPUP
+   ======================================== */
+.egg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 1.5rem;
+
+}
+
+.egg-box {
+  background: #1f3b28;
+  border: none;
+  border-radius: 12px;
+  width: min(90vw, 640px);
+  max-width: 640px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  padding: 1.6rem 1.4rem 1.8rem;
+  position: relative;
+  font-family: 'Vollkorn', serif;
+}
+
+.egg-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff5d6;
+}
+
+.start-btn, .restart-btn {
+  background: #f7d240;
+  color: #222;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid #d4ae06;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.start-btn:hover, .restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.easter-egg-trigger {
+  position: absolute;
+  bottom: 0.1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s;
+}
+
+.easter-egg-trigger:hover {
+  transform: scale(1.12);
+}
+
+.easter-egg-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .easter-egg-trigger {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 1rem auto 0;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .footer {
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+/* ========================================
+   SPEL - STARTSKÄRM STYLING
+   ======================================== */
+#startScreen {
+  background: #2E5339;
+  padding: 2rem;
+  border-radius: 5px;
+  font-family: 'Kage2', cursive;
+}
+
+#startScreen h2 {
+  color: #f7d240;
+  font-family: 'Kage2', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 0.03em;
+}
+
+#startScreen p {
+  color: #fff5d6;
+  font-family: 'Codesaver', monospace;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.start-btn {
+  background: #f7d240 !important;
+  color: #2E5339 !important;
+  border-color: #f7d240 !important;
+  font-family: 'Codesaver', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   SNAKE-SPEL - CANVAS OCH SPELMEKANIK
+   ======================================== */
+.score {
+  font-weight: 700;
+  margin: 0 0 .4rem;
+}
+
+.game-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .4rem;
+}
+
+.hint {
+  font-size: 1.2rem;
+  color: #f7d240;
+  margin-top: .7rem;
+  text-align: center;
+}
+
+/* ========================================
+   SPELLAYOUT - DESKTOP OCH MOBIL
+   ======================================== */
+.game-layout {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.highscore-container {
+  background: rgba(46, 83, 57, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 150px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+#snakeCanvas {
+  display: block;
+  background: #2E5339;
+  image-rendering: pixelated;
+  border: 2px solid #1f3b28;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .game-layout {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .highscore-container {
+    width: calc(100% - 2rem);
+    max-width: none;
+    margin: 0 1rem;
+  }
+  
+  .egg-box {
+    padding: 1rem;
+    width: 95vw;
+    max-width: 95vw;
+  }
+  
+  #startScreen {
+    padding: 1.5rem 1rem;
+  }
+  
+  #startScreen h2 {
+    font-size: 2rem;
+  }
+  
+  .hint {
+    font-size: 0.9rem;
+  }
+  
+  #snakeCanvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: calc(100vw - 4rem);
+  }
+  
+  .game-top {
+    flex-wrap: wrap;
+  }
+}
+
+.easter-egg-content, .easter-egg .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ========================================
+   SIDOR - HEADER OCH LAYOUT
+   ======================================== */
+.page-header {
+  position: sticky;
+  top: 0;
+  background-color: #465946;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+.page-header.scrolled {
+  background-color: rgba(70, 89, 70, 0.5);
+}
+
+.page-header a:has(.page-header-logo) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.page-header-logo {
+  height: 70px; /* Större vid toppen */
+  width: auto;
+  display: block;
+  transition: height 0.25s ease;
+}
+
+/* Mindre när man scrollar */
+.page-header.scrolled .page-header-logo {
+  height: 52px;
+}
+
+.back-link-page {
+  color: #fff5d6;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Codesaver', monospace;
+  transition: color 0.2s ease;
+  z-index: 101;
+}
+
+.back-link-page:hover {
+  color: #f7d240;
+}
+
+.page-hero {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page-hero-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.page-hero-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Kage2', cursive;
+  font-size: 7rem;
+  color: #f7d240;
+  margin: 0;
+  margin-top: 15vh;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(46, 83, 57, 0.8);
+}
+
+/* ========================================
+   SCROLLBAR BILD (PAGE 1)
+   ======================================== */
+.page1-scrollable-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.8rem 1.5rem 2.6rem; /* mindre top-padding så kartan kommer upp */
+}
+
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.content-section h2 {
+  font-family: 'Kage2', cursive;
+  font-size: 2.5rem;
+  color: #f7d240;
+  margin-bottom: 1rem;
+}
+
+/* Specifik färg för rubriken "Att göra i Rwanda" */
+.content-section h2[data-i18n="page3-activities-title"] {
+  color: #2E5339; /* grön */
+}
+
+.content-section p {
+  font-size: 1.125rem;
+  color: #fff5d6;
+  line-height: 1.6;
+}
+
+.content-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+  RWANDA GALLERY SECTION (5 kol x 4 rader, 3 st .big 2x2)
+  ======================================== */
+.rwanda-gallery-section h2 {
+  font-family: 'Kage2', cursive;
+  font-size: 2rem;
+  color: #f7d240;
+  margin: 0 0 1.5rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.rwanda-gallery-grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 140px;
+  padding: 0;
+  margin: 0;
+}
+
+.rwanda-gallery-grid .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background: #1f3b28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.2rem; /* ingen marginal mellan bilder */
+}
+
+.rwanda-gallery-grid .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.95);
+  transition: transform .5s ease, filter .4s ease;
+}
+
+.rwanda-gallery-grid .gallery-item:hover img,
+.rwanda-gallery-grid .gallery-item:focus-visible img {
+  transform: scale(1.07);
+  filter: brightness(1.05);
+}
+
+/* Större 2x2 rutor */
+.rwanda-gallery-grid .gallery-item.big { grid-row: span 2; grid-column: span 2; }
+
+.rwanda-gallery-grid .gallery-item.placeholder div {
+  font-family: 'Codesaver', monospace;
+  font-size: 0.85rem;
+  color: #fff5d6;
+  opacity: .7;
+}
+
+.gallery-hint {
+  margin: 1.2rem 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #fff5d6;
+  opacity: .6;
+}
+
+@media (max-width: 768px) {
+  .rwanda-gallery-section h2 { font-size: 2rem; }
+  .rwanda-gallery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 100px; }
+  .rwanda-gallery-grid .gallery-item.big { grid-row: span 2; grid-column: span 2; }
+}
+
+/* (Transition definierad i img; dubblering borttagen) */
+
+/* Fullbredd säkerhetssektion på Rwanda-sidan */
+.sakerhet-section {
+  width: 100%;
+  background: #fff3c0;
+  color: #2E5339;
+  margin: 0;
+  padding: 2.5rem 1.5rem 2.8rem;
+  box-sizing: border-box;
+  border-radius: 4px; /* rundade hörn */
+}
+
+.sakerhet-section .sakerhet-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sakerhet-section h2 {
+  font-family: 'Kage2', cursive;
+  font-size: 2rem;
+  margin: 0 0 1.3rem;
+  letter-spacing: 0.03em;
+  color: #2E5339;
+}
+
+.sakerhet-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  max-width: 900px;
+  color: #2E5339; /* gör texten grön */
+}
+
+.sakerhet-section p strong { color: #2E5339; }
+
+.sakerhet-tips {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0 0 1.2rem;
+  max-width: 700px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2E5339; /* grön text i listan */
+}
+
+/* Länkstil i säkerhetssektionen: grön och understruken */
+.sakerhet-section a {
+  color: #2E5339;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.sakerhet-section a:hover,
+.sakerhet-section a:focus-visible {
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+.sakerhet-tips li { margin-bottom: 0.4rem; }
+
+@media (max-width: 768px) {
+  .sakerhet-section {
+    /* Gör bredd/padding konsekvent med andra sektioner (2rem sidopadding) */
+    padding: 2rem 2rem 2.2rem;
+  }
+  .sakerhet-section h2 { font-size: 2rem; }
+  .sakerhet-section p, .sakerhet-tips { font-size: 0.95rem; }
+}
+
+/* ========================================
+   HERO-SUBTITLE PÅ FRONTSIDAN
+   ======================================== */
+.hero-subtitle {
+  text-align: center;
+  font-family: 'Kage2', cursive;
+  font-size: 4rem;
+  color: #f7d240; /* gul */
+  background: #465946;
+  padding: 0.5rem 0 1.2rem 0;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+
+/* ========================================
+   FRONTSIDA - DATUM OCH PLATS BANNER
+   ======================================== */
+.frontpage-date-location {
+  text-align: center;
+  font-family: 'Codesaver', cursive;
+  font-size: 1.4rem;
+  color: #fff3c0; /* smörgul */
+  background: #465946;
+  padding: 1.2rem 0 1.1rem 0;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem; /* mindre mellanrum nedåt */
+}
+
+/* Vågigt gult streck under datum och plats (samma som i menyn) */
+.frontpage .frontpage-date-location::after {
+  content: '';
+  display: block;
+  /* Justerat närmare brödtexten för mindre tomrum */
+  margin: 4rem auto 0;
+  width: 80%;
+  max-width: 620px;
+  height: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg width='216' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,14 C4,2 8,2 12,14 S20,26 24,14 S32,2 36,14 S44,26 48,14 S56,2 60,14 S68,26 72,14 S80,2 84,14 S92,26 96,14 S104,2 108,14 S116,26 120,14 S128,2 132,14 S140,26 144,14 S152,2 156,14 S164,26 168,14 S176,2 180,14 S188,26 192,14 S200,2 204,14 S212,26 216,14' stroke='%23f7d240' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: repeat-x;
+}
+
+/* Mobil: färre och mindre vågor */
+@media (max-width: 768px) {
+  .frontpage .frontpage-date-location::after {
+    width: 70%;
+    /* Mobil: ännu lite närmare texten */
+    margin: 3rem auto 0;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='160' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q4,2 8,10 Q12,18 16,10 Q20,2 24,10 Q28,18 32,10 Q36,2 40,10 Q44,18 48,10 Q52,2 56,10 Q60,18 64,10 Q68,2 72,10 Q76,18 80,10 Q84,2 88,10 Q92,18 96,10 Q100,2 104,10 Q108,18 112,10 Q116,2 120,10 Q124,18 128,10 Q132,2 136,10 Q140,18 144,10 Q148,2 152,10 Q156,18 160,10' stroke='%23f7d240' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+  }
+}
+
+/* ========================================
+   ÅTERANVÄNDBAR VÅG-DIVIDER MELLAN SEKTIONER
+   (används på Rwanda-sidan mellan faktaruta/brödtext samt säkerhet/galleri)
+   ======================================== */
+.wave-divider {
+  width: 80%;
+  max-width: 620px;
+  height: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg width='216' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,14 C4,2 8,2 12,14 S20,26 24,14 S32,2 36,14 S44,26 48,14 S56,2 60,14 S68,26 72,14 S80,2 84,14 S92,26 96,14 S104,2 108,14 S116,26 120,14 S128,2 132,14 S140,26 144,14 S152,2 156,14 S164,26 168,14 S176,2 180,14 S188,26 192,14 S200,2 204,14 S212,26 216,14' stroke='%23efbc22' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: repeat-x;
+  margin: 3.5rem auto 3.5rem;
+}
+@media (max-width: 768px) {
+  .wave-divider {
+    width: 70%;
+    height: 20px;
+    margin: 2.5rem auto 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='160' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q4,2 8,10 Q12,18 16,10 Q20,2 24,10 Q28,18 32,10 Q36,2 40,10 Q44,18 48,10 Q52,2 56,10 Q60,18 64,10 Q68,2 72,10 Q76,18 80,10 Q84,2 88,10 Q92,18 96,10 Q100,2 104,10 Q108,18 112,10 Q116,2 120,10 Q124,18 128,10 Q132,2 136,10 Q140,18 144,10 Q148,2 152,10 Q156,18 160,10' stroke='%23efbc22' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+  }
+}
+
+/* Frontpage specifik minskning av top-padding för första info-section */
+.frontpage .info-section { padding-top: 18px; }
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    margin: 0 0 -1.5rem 0;
+  }
+
+  .hero-img {
+    margin-bottom: -10.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2.5rem;
+    padding: 0.1rem 0 0.1rem 0;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 0.75rem 1.25rem;
+  }
+  /* Mobil: lite mindre vid toppen, ännu mindre vid scroll */
+  .page-header-logo { height: 42px; }
+  .page-header.scrolled .page-header-logo { height: 38px; }
+  
+  .back-link-page {
+    font-size: 0.9rem;
+  }
+  
+  .page-hero {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .page-hero-image {
+    width: 100%;
+  }
+  
+  .page-hero-title {
+    font-size: 2.5rem;
+    margin-left: 0;
+    margin: 0 1rem;
+    padding: 1.5rem 2rem;
+    padding-right: 2rem;
+    white-space: normal;
+  }
+  
+  .content-section h2 {
+    font-size: 2rem;
+  }
+  
+  .content-section p {
+    font-size: 1rem;
+  }
+  /* Mindre radavstånd för "Missa ingen information" rubriken i formuläret */
+  .form-container h2[data-i18n="form-info-title"] {
+    line-height: 1.05;
+    font-size: 2.6rem; /* minska även storleken lite på mobil */
+  }
+}
+
+/* ========================================
+   LIGHTBOX FÖR RWANDA-GALLERI
+   ======================================== */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 13000;
+  padding: 2rem 1.5rem;
+}
+
+.lightbox-overlay.active { display: flex; }
+
+.lightbox-dialog {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image-wrapper img {
+  max-width: 100%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.55);
+  background: #000;
+}
+
+.lightbox-close-btn, .lightbox-nav-btn {
+  position: absolute;
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #fff5d6;
+  color: #fff5d6;
+  cursor: pointer;
+  font-family: 'Codesaver', monospace;
+  font-size: 1rem;
+  padding: 0.55rem 0.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.lightbox-close-btn { top: -0.75rem; right: -0.75rem; }
+
+.lightbox-close-btn:hover,
+.lightbox-nav-btn:hover { background: rgba(47,83,57,0.85); transform: scale(1.06); }
+
+.lightbox-nav-btn { top: 50%; transform: translateY(-50%); }
+.lightbox-nav-btn.prev { left: -0.75rem; }
+.lightbox-nav-btn.next { right: -0.75rem; }
+
+.lightbox-caption {
+  font-family: 'Codesaver', monospace;
+  font-size: 0.85rem;
+  color: #fff5d6;
+  opacity: .85;
+  max-width: 1100px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .lightbox-image-wrapper img { max-height: 60vh; }
+  .lightbox-close-btn, .lightbox-nav-btn { font-size: 0.8rem; padding: 0.45rem 0.7rem; }
+  .lightbox-nav-btn.prev { left: 0.25rem; }
+  .lightbox-nav-btn.next { right: 0.25rem; }
+  .lightbox-close-btn { top: 0.4rem; right: 0.4rem; }
+}
+
