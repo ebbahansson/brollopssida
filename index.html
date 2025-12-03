@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Välkommen till Rwanda</title>
+  <link rel="icon" type="image/png" href="bilder/apa_2.png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="frontpage">
+  <!-- ========================================
+       FÖR-SIDA / PRE-GATE (HELTÄCKANDE)
+       ======================================== -->
+  <div id="preGate" class="pre-gate" aria-hidden="false">
+    <!-- Desktop-bild (döljs på mobil) -->
+    <img src="bilder/Försida/försida.png" alt="" class="pre-gate-image pre-gate-image-desktop" />
+    <!-- Mobil-bild (döljs på desktop) - byt till din mobilbild -->
+    <img src="bilder/Försida/försida_mobil.png" alt="" class="pre-gate-image pre-gate-image-mobile" />
+    <button type="button" class="pre-gate-language-btn" id="preGateLanguageBtn" aria-label="Byt språk">
+      <span class="globe-icon">🌏︎</span>
+      <span class="lang-text">EN</span>
+    </button>
+    <div class="pre-gate-overlay">
+      <form id="gatePasswordForm" class="gate-form" autocomplete="off">
+        <input id="gatePasswordInput" type="text" placeholder="Lösenord" aria-label="Lösenord" data-i18n="password-placeholder" />
+        <button type="submit" class="gate-btn" data-i18n="password-button">Kom in</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================
+       HÖRNSYMBOL MED SNURRANDE TEXT
+       ======================================== -->
+  <div class="corner-badge" aria-label="Snurrande symbol">
+    <svg viewBox="0 0 200 200" class="spin-badge" role="img" aria-label="Dekorativ cirkel med text">
+      <defs>
+        <path id="badgeCirclePath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0" />
+        <clipPath id="badgeClip"><circle cx="100" cy="100" r="50" /></clipPath>
+      </defs>
+      <!-- Bild i mitten -->
+      <image href="bilder/badge/badge2.png" x="50" y="50" width="100" height="100" clip-path="url(#badgeClip)" preserveAspectRatio="xMidYMid slice" />
+      <!-- Snurrande text runt -->
+      <g class="spin-text">
+        <text class="ring-text">
+          <textPath href="#badgeCirclePath" startOffset="0">BRYBBA • 2027 • RWANDA • BRYBBA • 2027 • </textPath>
+        </text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ========================================
+       HEADER MED INBYGGD HAMBURGER
+       ======================================== -->
+  <header class="page-header" id="pageHeader">
+    <div class="header-inner">
+      <div class="header-spacer"></div>
+      <div class="header-controls">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Öppna meny">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
+          <div class="menu-logo">
+            <img src="bilder/header/Bryan_Ebba.png" alt="Bryan & Ebba logga">
+          </div>
+          <ul>
+            <li><a href="page1.html" data-i18n="nav-about">Om oss</a></li>
+            <li><a href="page2.html" data-i18n="nav-travel">Resa och boende</a></li>
+            <li><a href="page3.html" data-i18n="nav-rwanda">Om Rwanda</a></li>
+            <li><a href="form.html" data-i18n="nav-form">Formulär</a></li>
+          </ul>
+          <button class="language-btn" id="menuLanguageBtn" aria-label="Byt språk">
+            <span class="globe-icon">🌏︎</span>
+            <span class="lang-text">EN</span>
+          </button>
+        </nav>
+        <div class="menu-overlay" id="menuOverlay"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Headerbild">
+    <img src="bilder/hero/hero.png" alt="Headerbild" class="hero-img" />
+  </section>
+
+  <!-- ========================================
+       STOR TEXTRAD
+       ======================================== -->
+  <div class="hero-subtitle" data-i18n="hero-title">Vi ska gifta oss!</div>
+
+  <!-- ========================================
+       DATUM OCH PLATS
+       ======================================== -->
+  <div class="frontpage-date-location" data-i18n="date-location">3 JULI 2027  |  RWANDA</div>
+  <!-- ========================================
+       INFORMATIONSSEKTION - TRE TEXTBLOCK
+       ======================================== -->
+
+  <section class="info-section">
+    <div class="info-block">
+      <p data-i18n="info-text-1">Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!</p>
+      <p data-i18n="info-text-2">Det är alltå inte nästa år, utan året därpå. Eftersom kombinationen bröllop + annan värlsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.</p>
+      <p data-i18n="info-text-3">På den här sidan kommer vi lägga upp all information ni behöver inför resan och bröllopet.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BILDLÄNKAR - NAVIGATION TILL UNDERSIDOR
+       ======================================== -->
+  <section class="image-links" aria-label="Bildlänkar">
+    <a href="page1.html" class="image-link">
+      <img src="bilder/Om/Sv/1.png" alt="Info sida 1">
+    </a>
+    <a href="page2.html" class="image-link">
+      <img src="bilder/Om/Sv/2.png" alt="Info sida 2">
+    </a>
+    <a href="page3.html" class="image-link">
+      <img src="bilder/Om/Sv/3.png" alt="Info sida 3">
+    </a>
+  </section>
+
+      <!-- Dekorativ våg mellan faktarutan och brödtexten -->
+    <div class="wave-divider" aria-hidden="true"></div>
+
+  <!-- ========================================
+       CALL TO ACTION - FORMULÄRLÄNK
+       ======================================== -->
+  <a href="form.html" class="link-banner" aria-label="Häng med!">
+    <span><span class="desktop-symbols" data-i18n="cta-symbols-desktop">᪓ ✈︎ </span><span data-i18n="cta-banner">Intresseanmälan</span><span class="mobile-line"><br><span data-i18n="cta-symbols-mobile">᪓ ✈︎</span></span><span class="desktop-symbols" data-i18n="cta-symbols-desktop"> ᪓ ✈︎</span></span>
+  </a>
+
+  <!-- ========================================
+       FOOTER - AVSLUTANDE MEDDELANDE
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h2 data-i18n="footer-title">Vi längtar efter att ses!</h2>
+      <p data-i18n="footer-text-1">Det här kommer bli en resa och ett firande vi aldrig glömmer,</p>
+      <p data-i18n="footer-text-2">tack för att du vill vara en del av den.</p>
+    </div>
+
+    <!-- Easter Egg-knapp -->
+    <button class="easter-egg-trigger" id="easterEggBtn" aria-label="Hemligt spel">
+      <img src="bilder/footer/apa.png" alt="Hemlig bild" />
+    </button>
+  </footer>
+
+  <!-- ========================================
+       EASTER EGG - SNAKE-SPEL POPUP
+       ======================================== -->
+  <div id="easterEggPopup" class="egg-overlay" aria-hidden="true">
+    <div class="egg-box" role="dialog" aria-modal="true" aria-labelledby="eggTitle">
+      <button class="egg-close" type="button" aria-label="Stäng" id="eggCloseBtn">✕</button>
+
+      <!-- Startskärm -->
+      <div id="startScreen">
+        <h1 style="font-family: 'Kage2', cursive; color: #efbc22; font-size: 3rem; margin: 0 0 0.5rem 0;" data-i18n="game-title">Kyssjakten 💋</h1>
+        <h2 id="eggTitle" style="font-family: 'Codesaver', monospace; font-size: 1.5rem; color: #fff5d6;" data-i18n="game-subtitle">Hur många kyssar kan Ebba få?</h2>
+        <!-- <p style="margin-top:0.5rem;">Tryck på Starta och använd piltangenterna.</p>-->
+        <button id="startGameBtn" class="start-btn" data-i18n="game-start">Starta</button>
+      </div>
+
+      <!-- Spelyta -->
+      <div id="gameScreen" style="display:none;">
+        <div class="game-top">
+          <p id="score" class="score">Pussar: 0</p>
+          <button id="restartBtn" class="restart-btn" type="button" style="display:none;" data-i18n="game-restart">Spela igen</button>
+        </div>
+        <div class="game-content-wrapper">
+          <canvas id="snakeCanvas"></canvas>
+          <div class="game-right-sidebar">
+            <p class="hint" data-i18n="game-hint">Styr Bryan med hjälp av piltangenterna!</p>
+            <div id="highScoreList" class="highscore-container"></div>
+          </div>
+        </div>
+        <!-- Mobila kontroller -->
+        <div class="mobile-controls" id="mobileControls">
+          <button class="arrow-btn arrow-up" id="arrowUp" aria-label="Upp">▲</button>
+          <div class="arrow-row">
+            <button class="arrow-btn arrow-left" id="arrowLeft" aria-label="Vänster">◄</button>
+            <button class="arrow-btn arrow-down" id="arrowDown" aria-label="Ner">▼</button>
+            <button class="arrow-btn arrow-right" id="arrowRight" aria-label="Höger">►</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script src="script.js"></script>
+
+</body>
+</html>

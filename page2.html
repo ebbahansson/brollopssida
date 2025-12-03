@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resa och boende</title>
+  <link rel="icon" type="image/png" href="bilder/apa_2.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================================
+       HEADER MED HAMBURGER
+       ======================================== -->
+  <header class="page-header" id="pageHeader">
+    <a href="index.html">
+      <img src="bilder/header/Bryan_Ebba.png" alt="Logga" class="page-header-logo">
+    </a>
+    <div class="header-controls">
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Öppna meny">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
+        <div class="menu-logo">
+          <img src="bilder/header/Bryan_Ebba.png" alt="Bryan & Ebba logga">
+        </div>
+        <ul>
+          <li><a href="index.html" data-i18n="nav-home">Hem</a></li>
+          <li><a href="page1.html" data-i18n="nav-about">Om oss</a></li>
+          <li><a href="page2.html" data-i18n="nav-travel">Resa och boende</a></li>
+          <li><a href="page3.html" data-i18n="nav-rwanda">Om Rwanda</a></li>
+          <li><a href="form.html" data-i18n="nav-form">Formulär</a></li>
+        </ul>
+        <button class="language-btn" id="languageBtn" aria-label="Byt språk">
+          <span class="globe-icon">🌏︎</span>
+          <span class="lang-text">EN</span>
+        </button>
+      </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
+  </header>
+
+  <!-- ========================================
+       HERO SEKTION
+       ======================================== -->
+  <section class="page-hero">
+    <img src="bilder/Boende och resa/1.jpg" alt="Resa och boende" class="page-hero-image">
+    <h1 class="page-hero-title" data-i18n="page2-hero-title"></h1>
+  </section>
+
+  <!-- ========================================
+       INNEHÅLL
+       ======================================== -->
+  <main class="page-content">
+    <section class="content-section">
+      <h2 data-i18n="page2-section1-title">Här var det visst lite tomt...</h2>
+      <p data-i18n="page2-section1-text 1">Här kommer vi fylla på med information om resan till Rwanda och hur ni ska göra med resa, boende, visum och allt sånt.</p>
+      <p data-i18n="page2-section1-text 2">Håll utkik, och glöm inte att fylla i intresseanmälan så att ni inte missar någon viktig information!</p>
+    </section>
+
+    <!-- Dekorativ vågdivider -->
+    <div class="wave-divider" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <!-- Easter Egg-knapp -->
+    <button class="easter-egg-trigger" id="easterEggBtn" aria-label="Hemligt spel">
+      <img src="bilder/footer/apa.png" alt="Hemlig bild" />
+    </button>
+  </footer>
+
+  <!-- ========================================
+       EASTER EGG - SNAKE-SPEL POPUP
+       ======================================== -->
+  <div id="easterEggPopup" class="egg-overlay" aria-hidden="true">
+    <div class="egg-box" role="dialog" aria-modal="true" aria-labelledby="eggTitle">
+      <button class="egg-close" type="button" aria-label="Stäng" id="eggCloseBtn">✕</button>
+
+      <!-- Startskärm -->
+      <div id="startScreen">
+        <h1 style="font-family: 'Kage2', cursive; color: #efbc22; font-size: 3rem; margin: 0 0 0.5rem 0;" data-i18n="game-title">Kyssjakten 💋</h1>
+        <h2 id="eggTitle" style="font-family: 'Codesaver', monospace; font-size: 1.5rem; color: #fff5d6;" data-i18n="game-subtitle">Hur många kyssar kan Ebba få?</h2>
+        <button id="startGameBtn" class="start-btn" data-i18n="game-start">Starta</button>
+      </div>
+
+      <!-- Spelyta -->
+      <div id="gameScreen" style="display:none;">
+        <div class="game-top">
+          <p id="score" class="score">Kyssar: 0</p>
+          <button id="restartBtn" class="restart-btn" type="button" style="display:none;" data-i18n="game-restart">Spela igen</button>
+        </div>
+        <div class="game-content-wrapper">
+          <canvas id="snakeCanvas"></canvas>
+          <div class="game-right-sidebar">
+            <p class="hint" data-i18n="game-hint">Styr Bryan med hjälp av piltangenterna!</p>
+            <div id="highScoreList" class="highscore-container"></div>
+          </div>
+        </div>
+        <!-- Mobila kontroller -->
+        <div class="mobile-controls" id="mobileControls">
+          <button class="arrow-btn arrow-up" id="arrowUp" aria-label="Upp">▲</button>
+          <div class="arrow-row">
+            <button class="arrow-btn arrow-left" id="arrowLeft" aria-label="Vänster">◄</button>
+            <button class="arrow-btn arrow-down" id="arrowDown" aria-label="Ner">▼</button>
+            <button class="arrow-btn arrow-right" id="arrowRight" aria-label="Höger">►</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
