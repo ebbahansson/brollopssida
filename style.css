@@ -31,7 +31,7 @@ body {
   color: #fff5d6;
   line-height: 1.6;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: visible;
   width: 100%;
   box-sizing: border-box;
 }
@@ -845,6 +845,7 @@ body {
   position: relative;
   margin-top: 3rem;
   flex-shrink: 0;
+  overflow: visible;
 }
 .footer-content h2 {
   font-family: 'Kage2', cursive;
@@ -930,24 +931,26 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   border-radius: 0;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform .3s;
+  object-fit: contain;
+  z-index: 200;
 }
 
 .easter-egg-trigger:hover {
-  transform: scale(1.12);
+  transform: scale(1.25);
 }
 
 .easter-egg-trigger img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {
@@ -956,8 +959,8 @@ body {
     bottom: auto;
     right: auto;
     margin: 1rem auto 0;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
   
   .footer {
@@ -974,6 +977,11 @@ body {
   padding: 1.5rem;
   border-radius: 5px;
   font-family: 'Kage2', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #startScreen h1 {
@@ -1794,5 +1802,74 @@ body {
   .lightbox-nav-btn.prev { left: 0.25rem; }
   .lightbox-nav-btn.next { right: 0.25rem; }
   .lightbox-close-btn { top: 0.4rem; right: 0.4rem; }
+}
+
+/* ========================================
+   EASTER EGG - APE BUTTONS
+   ======================================== */
+.easter-egg-ape {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 0%;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 200;
+  pointer-events: auto;
+}
+
+.easter-egg-ape:hover {
+  transform: scale(1.20);
+}
+
+.easter-egg-ape:active {
+  transform: scale(0.95);
+}
+
+.easter-egg-ape img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0%;
+  display: block;
+}
+
+/* Apa till höger - under brödtexten och över knapparna */
+#apeRight {
+  right: 5%;
+  top: 160%;
+}
+
+/* Apa till vänster - vid andra vågen */
+#apeLeft {
+  left: 15px;
+  top: 245%;
+  opacity: 0.85;
+}
+
+/* Mobil: mindre apor */
+@media (max-width: 768px) {
+  .easter-egg-ape {
+    width: 100px;
+    height: 100px;
+  }
+  
+  #apeRight {
+    right: 10%;
+    top: 124%;
+  }
+  
+  #apeLeft {
+    left: 1%;
+    top: 259%;
+    opacity: 0.9;
+  }
 }
 

@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Översätt sidan vid laddning
   translatePage();
+  updateApeImages();
 
   // Lägg till event listeners för båda språkknapparna
   const preGateLanguageBtn = document.getElementById('preGateLanguageBtn');
@@ -672,19 +673,19 @@ const translations = {
     'page3-gallery-title': 'Såhär kan en semester i Rwanda kan se ut!',
     'page3-activities-title': 'Att göra i Rwanda',
     'page3-activities-subtitle': '(förutom att gå på bröllop)',
-    'page3-activity-gorillas': 'Besök <strong>bergsgorillor i Volcanoes nationalpark</strong>',
-    'page3-activity-safari': 'Åk på safari i <strong>Akagera nationalpark</strong> och se <strong>lejon och elefanter</strong>',
-    'page3-activity-colobus': 'Vandra bland <strong>colobusapor i Nyungwe-skogen</strong>',
-    'page3-activity-markets': 'Utforska <strong>Kigalis</strong> livliga marknader och mysiga caféer',
+    'page3-activity-gorillas': 'Vandra med bergsgorillor i <strong>Volcanoes National Park</strong>',
+    'page3-activity-safari': 'Safari i <strong>Akagera National Park</strong> och se lejon och elefanter',
+    'page3-activity-colobus': 'Vandring bland kolobusapor i <strong>Nyungwe Forest</strong>',
+    'page3-activity-markets': 'Utforska <strong>Kigalis</strong> livliga marknader och mysiga kaféer (eller rooftop barer)',
     'page3-activity-genocide': 'Besök <strong>Kigali Genocide Memorial</strong>',
-    'page3-activity-tea': 'Besök <strong>teplantager</strong> och <strong>kaffeodlingar</strong>',
-    'page3-activity-dance': 'Upplev <strong>traditionell rwandisk dans och musik</strong>',
-    'page3-activity-neighbours': 'Eller... besök någon av Rwandas fantastiska grannar, som <strong>Uganda</strong> eller <strong>Kenya</strong>!',
+    'page3-activity-tea': 'Besök <strong>teplantager och kaffeodlingar</strong>',
+    'page3-activity-dance': 'Upplev traditionell <strong>dans och musik</strong>',
+    'page3-activity-neighbours': 'Eller… ta en avstickare till ett av Rwandas fantastiska grannländer, som <strong>Uganda eller Kenya</strong>!',
     'page3-fact-capital': '<strong>Huvudstad:</strong> Kigali',
     'page3-fact-languages': '<strong>Officiella språk:</strong> Kinyarwanda, engelska, franska',
     'page3-fact-currency': '<strong>Valuta:</strong> Rwandisk franc (RWF)',
-    'page3-fact-area': '<strong>Area:</strong> 26 338 km² (ungefär dubbla Skånes storlek)',
-    'page3-fact-population': '<strong>Befolkning:</strong> Cirka 13 miljoner',
+    'page3-fact-area': '<strong>Yta:</strong> 26 338 km² (Ungefär dubbelt så stort som Skåne)',
+    'page3-fact-population': '<strong>Invånare:</strong> Cirka 13 miljoner',
     'page3-security-title': 'Säkerhet i Rwanda',
     'page3-security-text': 'Rwanda anses nu som ett av de säkraste länderna i Afrika, och Kigali är känt för att vara rent, organiserat och relativt lugnt. Våldsbrott mot besökare är sällsynta, men normal uppmärksamhet och sunt förnuft gäller alltid.',
     'page3-security-link-text': 'Läs mer på UD:s webbplats:',
@@ -769,14 +770,14 @@ const translations = {
     'page3-why-text': 'Rwanda is home to much of Bryan’s family. Like them, we are so excited to gather all our loved ones for our wedding!',
     'page3-why-desc': 'Rwanda is a small, green, and hilly country in the heart of East Africa, often called "the land of a thousand hills." The landscape is full of rolling mountains, deep valleys, and large lakes.',
     'page3-activities-title': 'Things to do in Rwanda',
-    'pag bildrubriken, e3-activities-subtitle': '(besides going to a wedding)',
-    'page3-activity-gorillas': 'Visit <strong>mountain gorillas in Volcanoes National Park</strong>',
-    'page3-activity-safari': 'Go on safari in <strong>Akagera National Park</strong> and see <strong>lions and elephants</strong>',
-    'page3-activity-colobus': 'Hike among <strong>colobus monkeys in Nyungwe Forest</strong>',
+    'page3-activities-subtitle': '(besides going to a wedding)',
+    'page3-activity-gorillas': 'Hike with mountain gorillas in <strong>Volcanoes National Park</strong>',
+    'page3-activity-safari': 'Safari in <strong>Akagera National Park</strong> and see lions and elephants',
+    'page3-activity-colobus': 'Hike with colobus monkeys in <strong>Nyungwe Forest</strong>',
     'page3-activity-markets': 'Explore <strong>Kigali’s</strong> lively markets and cozy cafés',
     'page3-activity-genocide': 'Visit the <strong>Kigali Genocide Memorial</strong>',
-    'page3-activity-tea': 'Visit <strong>tea plantations</strong> and <strong>coffee farms</strong>',
-    'page3-activity-dance': 'Experience <strong>traditional Rwandan dance and music</strong>',
+    'page3-activity-tea': 'Visit <strong>tea plantations and coffee farms</strong>',
+    'page3-activity-dance': 'Experience traditional <strong>dance and music</strong>',
     'page3-activity-neighbours': 'Or... visit one of Rwanda’s amazing neighbors, such as <strong>Uganda or Kenya</strong>!',
     'page3-security-title': 'Safety in Rwanda',
     'page3-security-text': 'Rwanda is now considered one of the safest countries in Africa, and Kigali is known for being clean, organized, and relatively calm. Violent crime against visitors is rare, but normal attention and common sense always apply.',
@@ -841,9 +842,36 @@ function translatePage() {
   updateFrontpageImages();
 }
 
+// Uppdatera apa-bilder baserat på aktuellt språk
+function updateApeImages() {
+  // Byt apa-bilder baserat på språk (startsidans apor)
+  const apeRight = document.getElementById('apeRight');
+  const apeLeft = document.getElementById('apeLeft');
+  
+  // Hitta alla easter egg knappar (både startsida och alla andra sidor)
+  const allApes = [apeRight, apeLeft];
+  const easterEggButtons = document.querySelectorAll('#easterEggBtn, .easter-egg-ape');
+  easterEggButtons.forEach(btn => allApes.push(btn));
+  
+  allApes.forEach(ape => {
+    if (ape) {
+      const svImg = ape.querySelector('.ape-sv');
+      const enImg = ape.querySelector('.ape-en');
+      if (currentLanguage === 'sv') {
+        svImg && (svImg.style.display = 'block');
+        enImg && (enImg.style.display = 'none');
+      } else {
+        svImg && (svImg.style.display = 'none');
+        enImg && (enImg.style.display = 'block');
+      }
+    }
+  });
+}
+
 function toggleLanguage() {
   currentLanguage = currentLanguage === 'sv' ? 'en' : 'sv';
   translatePage();
+  updateApeImages();
 
   // Stäng hamburgermenyn om språkknappen i menyn trycks
   const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -1112,4 +1140,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   placeBigGalleryItems();
+});
+
+/* ========================================
+   EASTER EGG - APE BUTTONS
+   ======================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  // Lägg till eventlyssnare för alla easter egg-apor
+  const easterEggApesElements = document.querySelectorAll('.easter-egg-ape');
+  
+  easterEggApesElements.forEach(ape => {
+    ape.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Trigger the hidden easter egg button
+      const btn = document.getElementById('easterEggBtn');
+      if (btn) {
+        btn.click();
+      }
+    });
+  });
 });
