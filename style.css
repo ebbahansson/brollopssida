@@ -1844,14 +1844,14 @@ body {
 
 /* Apa till höger - under brödtexten och över knapparna */
 #apeRight {
-  right: 5%;
-  top: 160%;
+  right: 50px;
+  top: 1300px;
 }
 
 /* Apa till vänster - vid andra vågen */
 #apeLeft {
   left: 15px;
-  top: 245%;
+  top: 1800px;
   opacity: 0.85;
 }
 
@@ -1863,13 +1863,13 @@ body {
   }
   
   #apeRight {
-    right: 10%;
-    top: 124%;
+    right: 10px;
+    top: 1050px;
   }
   
   #apeLeft {
-    left: 1%;
-    top: 259%;
+    left: 10px;
+    top: 2150px;
     opacity: 0.9;
   }
 }
