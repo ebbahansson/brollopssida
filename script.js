@@ -844,26 +844,16 @@ function translatePage() {
 
 // Uppdatera apa-bilder baserat på aktuellt språk
 function updateApeImages() {
-  // Byt apa-bilder baserat på språk (startsidans apor)
-  const apeRight = document.getElementById('apeRight');
-  const apeLeft = document.getElementById('apeLeft');
-  
-  // Hitta alla easter egg knappar (både startsida och alla andra sidor)
-  const allApes = [apeRight, apeLeft];
-  const easterEggButtons = document.querySelectorAll('#easterEggBtn, .easter-egg-ape');
-  easterEggButtons.forEach(btn => allApes.push(btn));
-  
-  allApes.forEach(ape => {
-    if (ape) {
-      const svImg = ape.querySelector('.ape-sv');
-      const enImg = ape.querySelector('.ape-en');
-      if (currentLanguage === 'sv') {
-        svImg && (svImg.style.display = 'block');
-        enImg && (enImg.style.display = 'none');
-      } else {
-        svImg && (svImg.style.display = 'none');
-        enImg && (enImg.style.display = 'block');
-      }
+  const apes = document.querySelectorAll('#easterEggBtn, .easter-egg-ape');
+  apes.forEach(ape => {
+    const svImg = ape.querySelector('.ape-sv');
+    const enImg = ape.querySelector('.ape-en');
+    if (currentLanguage === 'sv') {
+      svImg && (svImg.style.display = 'block');
+      enImg && (enImg.style.display = 'none');
+    } else {
+      svImg && (svImg.style.display = 'none');
+      enImg && (enImg.style.display = 'block');
     }
   });
 }
