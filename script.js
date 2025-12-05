@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kolla om användaren redan har loggat in denna session
     if (sessionStorage.getItem('siteAccess') === 'granted') {
       preGate.remove();
+      window.scrollTo({ top: 0, behavior: 'instant' });
     } else {
       // Hantera formulärets submit direkt
       gatePasswordForm.addEventListener('submit', (e) => {
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
           preGate.classList.add('hidden');
           setTimeout(() => {
             preGate.remove();
+            window.scrollTo({ top: 0, behavior: 'instant' });
           }, 600);
         } else {
           // Fel lösenord – skaka input / tydlig feedback
