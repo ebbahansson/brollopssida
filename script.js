@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('eggCloseBtn');
   const startBtn = document.getElementById('startGameBtn');
   const restartBtn = document.getElementById('restartBtn');
+  ensureMobileHighscoreUI();
 
   // Översätt sidan vid laddning
   translatePage();
@@ -297,6 +298,16 @@ function openPopup() {
   document.getElementById('startScreen').style.display = 'block';
   document.getElementById('gameScreen').style.display = 'none';
   stopGame();
+  const sheet = document.getElementById('highScoreSheet');
+  const toggle = document.getElementById('highscoreToggle');
+  if (sheet) {
+    sheet.classList.remove('visible');
+    sheet.classList.remove('is-open');
+    sheet.setAttribute('aria-hidden', 'true');
+  }
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', 'false');
+  }
   
   // Kör översättning för popupen
   if (typeof translatePage === 'function') {
@@ -310,6 +321,7 @@ function closePopup() {
   popup.style.display = 'none';
   popup.setAttribute('aria-hidden', 'true');
   stopGame();
+  document.dispatchEvent(new Event('closeHighscoreSheet'));
 }
 
 
@@ -561,32 +573,42 @@ function promptPlayerName() {
 
 async function updateHighScoreDisplay() {
   const highScores = await ScoreStorage.getHighScores();
-  const container = document.getElementById('highScoreList');
-  if (!container) return;
-  
+  const containers = [];
+  const desktopList = document.getElementById('highScoreList');
+  const mobileSheet = document.getElementById('highScoreSheet');
+  if (desktopList) containers.push(desktopList);
+  if (mobileSheet) containers.push(mobileSheet);
+  if (!containers.length) return;
+
   const lang = currentLanguage;
-  container.innerHTML = `<h3 style="margin: 0 0 0.5rem 0; color: #efbc22; font-size: 1.2rem;">${translations[lang]['game-leaderboard']}</h3>`;
-  
-  if (highScores.length === 0) {
-    container.innerHTML += `<p style="color: #fff5d6; font-size: 0.9rem;">${translations[lang]['game-no-scores']}</p>`;
-    return;
-  }
-  
-  const list = document.createElement('ol');
-  list.style.margin = '0';
-  list.style.padding = '0 0 0 1.5rem';
-  list.style.color = '#fff5d6';
-  list.style.fontSize = '0.95rem';
-  
-  highScores.forEach((entry, index) => {
-    const li = document.createElement('li');
-    li.style.marginBottom = '0.3rem';
-    const name = entry.name || translations[lang]['game-guest'];
-    li.innerHTML = `${name}: <strong>${entry.score}</strong> ${translations[lang]['game-score'].toLowerCase()}`;
-    list.appendChild(li);
+  const heading = translations[lang]['game-leaderboard'];
+  const noScores = translations[lang]['game-no-scores'];
+  const scoreLabel = translations[lang]['game-score'].toLowerCase();
+  const guestLabel = translations[lang]['game-guest'];
+
+  containers.forEach(container => {
+    container.innerHTML = `<h3>${heading}</h3>`;
+    if (highScores.length === 0) {
+      container.innerHTML += `<p style="font-size: 0.9rem;">${noScores}</p>`;
+      return;
+    }
+
+    const list = document.createElement('ol');
+    list.style.margin = '0';
+    list.style.padding = '0 0 0 1.5rem';
+    list.style.color = '#fff5d6';
+    list.style.fontSize = '0.95rem';
+
+    highScores.forEach(entry => {
+      const li = document.createElement('li');
+      li.style.marginBottom = '0.3rem';
+      const name = entry.name || guestLabel;
+      li.innerHTML = `${name}: <strong>${entry.score}</strong> ${scoreLabel}`;
+      list.appendChild(li);
+    });
+
+    container.appendChild(list);
   });
-  
-  container.appendChild(list);
 }
 
 function flashMessage(text) {
@@ -606,6 +628,84 @@ function flashMessage(text) {
   const wrapper = document.querySelector('.egg-box');
   wrapper.appendChild(box);
   setTimeout(() => box.remove(), 1800);
+}
+
+function ensureMobileHighscoreUI() {
+  const gameScreen = document.getElementById('gameScreen');
+  if (!gameScreen) return;
+
+  // Skapa bottom sheet för mobil inne i spelet
+  let sheet = document.getElementById('highScoreSheet');
+  if (!sheet) {
+    sheet = document.createElement('div');
+    sheet.id = 'highScoreSheet';
+    sheet.className = 'highscore-sheet';
+    sheet.setAttribute('aria-hidden', 'true');
+    gameScreen.appendChild(sheet);
+  }
+
+  // Skapa toggle-knapp inne i spelet, placerad efter mobilkontroller
+  let toggle = document.getElementById('highscoreToggle');
+  if (!toggle) {
+    toggle = document.createElement('button');
+    toggle.id = 'highscoreToggle';
+    toggle.className = 'highscore-toggle';
+    toggle.type = 'button';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'highScoreSheet');
+    toggle.classList.add('mounted');
+    const mobileControls = document.getElementById('mobileControls');
+    if (mobileControls && mobileControls.parentNode === gameScreen) {
+      mobileControls.insertAdjacentElement('afterend', toggle);
+    } else {
+      gameScreen.appendChild(toggle);
+    }
+  }
+
+  // Uppdatera etikett enligt språk
+  syncHighscoreToggleLabel();
+
+  const closeSheet = () => {
+    sheet.classList.remove('is-open');
+    sheet.classList.remove('visible');
+    sheet.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const handleOutsideClick = (event) => {
+    if (!sheet.classList.contains('is-open')) return;
+    const target = event.target;
+    if (sheet.contains(target)) return;
+    if (toggle.contains(target)) return;
+    closeSheet();
+  };
+
+  toggle.addEventListener('click', () => {
+    const willOpen = !sheet.classList.contains('is-open');
+    if (willOpen) {
+      sheet.classList.add('is-open');
+      sheet.classList.add('visible');
+      sheet.setAttribute('aria-hidden', 'false');
+    } else {
+      sheet.classList.remove('is-open');
+      sheet.classList.remove('visible');
+      sheet.setAttribute('aria-hidden', 'true');
+    }
+    toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  });
+
+  // Stäng vid klick utanför sheet och toggle, inom spelrutan
+  gameScreen.addEventListener('click', handleOutsideClick);
+
+  // Stäng när popup stängs
+  document.addEventListener('closeHighscoreSheet', closeSheet);
+}
+
+function syncHighscoreToggleLabel() {
+  const toggle = document.getElementById('highscoreToggle');
+  if (toggle && translations[currentLanguage]) {
+    toggle.textContent = translations[currentLanguage]['game-leaderboard'];
+  }
 }
 
 
@@ -842,6 +942,11 @@ function translatePage() {
   localStorage.setItem('siteLanguage', lang);
   // Byt bilder på förstasidan
   updateFrontpageImages();
+  // Uppdatera mobila topplist-knappen
+  syncHighscoreToggleLabel();
+  if (document.getElementById('highScoreList') || document.getElementById('highScoreSheet')) {
+    updateHighScoreDisplay();
+  }
 }
 
 // Uppdatera apa-bilder baserat på aktuellt språk
