@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omdirigerar...</title>
+  <script>
+    // Omdirigering för SEO-vänliga URL:er
+    const path = window.location.pathname;
+    
+    const redirects = {
+      '/om-oss': '/page1.html',
+      '/om-oss/': '/page1.html',
+      '/resa-och-boende': '/page2.html',
+      '/resa-och-boende/': '/page2.html',
+      '/om-rwanda': '/page3.html',
+      '/om-rwanda/': '/page3.html',
+      '/formular': '/form.html',
+      '/formular/': '/form.html'
+    };
+    
+    if (redirects[path]) {
+      window.location.replace(redirects[path]);
+    } else {
+      // Om ingen match, gå till startsidan
+      window.location.replace('/');
+    }
+  </script>
+</head>
+<body>
+  <p>Omdirigerar...</p>
+</body>
+</html>
