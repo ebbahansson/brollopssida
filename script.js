@@ -942,6 +942,8 @@ function translatePage() {
   localStorage.setItem('siteLanguage', lang);
   // Byt bilder på förstasidan
   updateFrontpageImages();
+  // Byt bild på page1
+  updatePage1Image();
   // Uppdatera mobila topplist-knappen
   syncHighscoreToggleLabel();
   if (document.getElementById('highScoreList') || document.getElementById('highScoreSheet')) {
@@ -969,6 +971,7 @@ function toggleLanguage() {
   currentLanguage = currentLanguage === 'sv' ? 'en' : 'sv';
   translatePage();
   updateApeImages();
+  updatePage1Image();
 
   // Stäng hamburgermenyn om språkknappen i menyn trycks
   const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -1009,6 +1012,17 @@ function updateFrontpageImages() {
     imageLinks[0].src = 'bilder/Om/Sv/1.png';
     imageLinks[1].src = 'bilder/Om/Sv/2.png';
     imageLinks[2].src = 'bilder/Om/Sv/3.png';
+  }
+}
+
+// === BYT BILD VID SPRÅKBYTE PÅ PAGE1 ===
+function updatePage1Image() {
+  const page1Image = document.getElementById('page1Image');
+  if (!page1Image) return;
+  if (currentLanguage === 'en') {
+    page1Image.src = page1Image.dataset.srcEn;
+  } else {
+    page1Image.src = page1Image.dataset.srcSv;
   }
 }
 
