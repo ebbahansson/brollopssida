@@ -934,6 +934,43 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
+.restart-btn {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  background: #f7d240;
+  color: #222;
+  font-weight: 700;
+  border: 2px solid #d4ae06;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(247, 210, 64, 0.6), 0 0 60px rgba(247, 210, 64, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite, float-up 3s ease-in-out infinite;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(247, 210, 64, 0.6), 0 0 60px rgba(247, 210, 64, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(247, 210, 64, 0.8), 0 0 80px rgba(247, 210, 64, 0.5);
+  }
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%);
+  }
+}
+
 /* Easter egg trigger button in footer GÖR STÖRRE ELLER MINDRE */
 .easter-egg-trigger {
   position: absolute;
@@ -1406,6 +1443,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
   }
 
   #snakeCanvas {
