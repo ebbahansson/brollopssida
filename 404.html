@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Omdirigerar...</title>
   <script>
-    // Omdirigering för SEO-vänliga URL:er
+    // Mappa SEO-vänliga URL:er till faktiska filer
     const path = window.location.pathname;
     
     const redirects = {
@@ -19,8 +19,21 @@
       '/formular/': '/form.html'
     };
     
-    if (redirects[path]) {
-      window.location.replace(redirects[path]);
+    const targetFile = redirects[path];
+    
+    if (targetFile) {
+      // Ladda filen utan att ändra URL:en
+      fetch(targetFile)
+        .then(response => response.text())
+        .then(html => {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(() => {
+          // Om fetch misslyckas, gå till startsidan
+          window.location.replace('/');
+        });
     } else {
       // Om ingen match, gå till startsidan
       window.location.replace('/');
@@ -28,6 +41,6 @@
   </script>
 </head>
 <body>
-  <p>Omdirigerar...</p>
+  <p>Laddar sida...</p>
 </body>
 </html>
