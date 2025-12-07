@@ -943,8 +943,9 @@ body {
   font-size: 1.2rem;
   padding: 1rem 2rem;
   background: #f7d240;
-  color: #222;
+  color: #2E5339;
   font-weight: 700;
+  font-family: 'Codesaver', monospace;
   border: 2px solid #d4ae06;
   border-radius: 5px;
   cursor: pointer;
