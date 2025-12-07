@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Omskriv URLs
+  RewriteRule ^om-oss/?$ page1.html [QSA,L]
+  RewriteRule ^resa-och-boende/?$ page2.html [QSA,L]
+  RewriteRule ^om-rwanda/?$ page3.html [QSA,L]
+  RewriteRule ^formular/?$ form.html [QSA,L]
+</IfModule>
