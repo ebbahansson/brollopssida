@@ -32,6 +32,14 @@
     const targetFile = redirects[path];
     
     if (targetFile) {
+      // Sätt språk baserat på URL:en
+      const englishUrls = ['/about-us', '/about-us/', '/travel-and-accommodation', '/travel-and-accommodation/', '/about-rwanda', '/about-rwanda/', '/form', '/form/'];
+      if (englishUrls.includes(path)) {
+        localStorage.setItem('language', 'en');
+      } else {
+        localStorage.setItem('language', 'sv');
+      }
+      
       // Ladda filen utan att ändra URL:en
       fetch(targetFile)
         .then(response => response.text())
