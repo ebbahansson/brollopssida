@@ -329,7 +329,7 @@
         <p data-i18n="form-intro">Vi är i full gång med planeringen och skulle behöva lite hjälp för att få en känsla av hur många som kan tänka sig att följa med till Rwanda.<br><br>Fyll gärna i formuläret nedan så får vi en första indikation på om du har möjlighet att komma.</p>
       </div>
 
-      <form action="#" method="post">
+      <form id="weddingForm" action="#" method="post">
         <input type="text" name="name" placeholder="Ditt namn" data-i18n="form-name" required>
         <input type="email" name="email" placeholder="Din e-post" data-i18n="form-email" required>
 
@@ -343,15 +343,15 @@
           <h2 data-i18n="form-attend-question">Kommer du till vårt bröllop?</h2>
           <div class="radio-options">
             <label>
-              <input type="radio" name="attend" value="yes">
+              <input type="radio" name="attend" value="yes" required>
               <span data-i18n="form-attend-yes">Ja</span>
             </label>
             <label>
-              <input type="radio" name="attend" value="maybe">
+              <input type="radio" name="attend" value="maybe" required>
               <span data-i18n="form-attend-maybe">Kanske</span>
             </label>
             <label>
-              <input type="radio" name="attend" value="no">
+              <input type="radio" name="attend" value="no" required>
               <span data-i18n="form-attend-no">Nej</span>
             </label>
           </div>
@@ -418,9 +418,11 @@
         </div>
       </div>
   <!-- ========================================
-       JAVASCRIPT - GÄSTHANTERING
+       JAVASCRIPT - GÄSTHANTERING OCH FORMULÄR
        ======================================== -->
   <script>
+    const FORM_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz-jw38g8bQA3J7y6AG7Fl0b7lYTMJxlg-oWpyHpRfZkBM33QSLTt24SMHIXTb1LlU2/exec';
+    
     const initialAddBtn = document.getElementById('initialAddBtn');
     const guestList = document.getElementById('guestList');
     let guestCount = 0;
@@ -430,6 +432,81 @@
       initialAddBtn.addEventListener('click', () => {
         addGuest();
         initialAddBtn.style.display = 'none';
+      });
+
+      // Formulärinlämning
+      const form = document.getElementById('weddingForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Skickar...';
+        
+        try {
+          // Samla formulärdata
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            attendance: formData.get('attend'),
+            message: formData.get('message') || '',
+            guests: []
+          };
+          
+          // Samla extra gäster
+          const guestNames = formData.getAll('guestName[]');
+          const guestEmails = formData.getAll('guestEmail[]');
+          for (let i = 0; i < guestNames.length; i++) {
+            if (guestNames[i] && guestEmails[i]) {
+              data.guests.push({
+                name: guestNames[i],
+                email: guestEmails[i]
+              });
+            }
+          }
+          
+          // Skicka till Google Sheets
+          const response = await fetch(FORM_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Visa bekräftelse
+            submitBtn.textContent = '✓ Skickat!';
+            submitBtn.style.background = '#4CAF50';
+            
+            // Töm formuläret
+            form.reset();
+            guestList.innerHTML = '';
+            guestCount = 0;
+            initialAddBtn.style.display = 'block';
+            
+            // Återställ knapp efter 3 sekunder
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+              submitBtn.disabled = false;
+            }, 3000);
+          } else {
+            throw new Error(result.error || 'Okänt fel');
+          }
+        } catch (error) {
+          console.error('Formulärfel:', error);
+          submitBtn.textContent = '✕ Något gick fel';
+          submitBtn.style.background = '#f44336';
+          
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 3000);
+        }
       });
     });
 
