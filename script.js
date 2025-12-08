@@ -778,6 +778,9 @@ const translations = {
     'form-submit': 'Skicka din anmälan',
     'form-info-title': 'Missa ingen information',
     'form-info-text': 'Vi kommer även använda uppgifterna från formuläret ovan till framtida informationsutskick, så även om du inte vet just nu så skriv gärna upp dig så du inte missar någon information.',
+    'form-sending': '⏳ Skickar...',
+    'form-success': '✓ Skickat!',
+    'form-error': '✕ Något gick fel',
     
     // Page 2 & 3
     'page2-hero-title': 'Resa och boende',
@@ -873,6 +876,9 @@ const translations = {
     'form-submit': 'Submit your registration',
     'form-info-title': "Don't miss any information",
     'form-info-text': "We will also use the information from the form above for future mailings, so even if you don't know right now, feel free to sign up so you don't miss any information.",
+    'form-sending': '⏳ Sending...',
+    'form-success': '✓ Sent!',
+    'form-error': '✕ Something went wrong',
     
     // Page 2
     'page2-hero-title': 'Travel & Accommodation',

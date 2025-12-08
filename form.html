@@ -162,12 +162,16 @@
 
     @media (max-width: 600px) {
       .form-header h1 {
-        font-size: 3.2rem;
+        font-size: 2.5rem;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         display: block;
         word-spacing: 100vw;
+        max-width: 90vw;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
       }
     }
 
@@ -445,7 +449,15 @@
         const submitBtn = form.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.textContent = '⏳ Skickar...';
+        
+        // Använd översättningar om de finns, annars fallback till svenska
+        const lang = window.currentLanguage || 'sv';
+        const translations = window.translations || {};
+        const sendingText = translations[lang]?.['form-sending'] || '⏳ Skickar...';
+        const successText = translations[lang]?.['form-success'] || '✓ Skickat!';
+        const errorText = translations[lang]?.['form-error'] || '✕ Något gick fel';
+        
+        submitBtn.textContent = sendingText;
         
         try {
           // Samla formulärdata
@@ -483,7 +495,7 @@
           
           if (result.success) {
             // Visa bekräftelse
-            submitBtn.textContent = '✓ Skickat!';
+            submitBtn.textContent = successText;
             submitBtn.style.background = '#4CAF50';
             
             // Töm formuläret
@@ -503,7 +515,7 @@
           }
         } catch (error) {
           console.error('Formulärfel:', error);
-          submitBtn.textContent = '✕ Något gick fel';
+          submitBtn.textContent = errorText;
           submitBtn.style.background = '#f44336';
           
           setTimeout(() => {
