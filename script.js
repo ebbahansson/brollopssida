@@ -72,7 +72,13 @@ const ScoreStorage = {
     try {
       const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptUrl + '?action=getScores');
       const data = await response.json();
-      return (data.scores || []).slice(0, 5);
+      // Filtrera bort tomma eller ogiltiga poster (t.ex. header-rader)
+      const scores = (data.scores || []).filter(entry => {
+        if (!entry || typeof entry !== 'object') return false;
+        const numericScore = Number(entry.score);
+        return Number.isFinite(numericScore);
+      });
+      return scores.slice(0, 5);
     } catch (error) {
       console.error('Kunde inte hämta scores från Google Sheets:', error);
       return [];
