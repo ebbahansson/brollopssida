@@ -28,7 +28,7 @@ const STORAGE_TYPE = 'googleSheets'; // Byt till 'googleSheets' senare
 
 // Google Sheets config (fylls i när du är redo att byta)
 const GOOGLE_SHEETS_CONFIG = {
-  scriptUrl: 'https://script.google.com/macros/s/AKfycbxmAEZiV_MBuxZarSJtW5qWNIw4Ohfx5kI0Pc4cICnKWASCKyugVvRYONOelt1IdddLEA/exec',
+  scriptUrl: 'https://script.google.com/macros/s/AKfycbzqQ0UGgXukZWe45ETIg481eYdO0dVtOj0pm1_vp4pEMF03pkdjPn5s2CN27mxO4xsgrQ/exec',
   sheetName: 'Highscores'
 };
 
