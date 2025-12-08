@@ -421,7 +421,7 @@
        JAVASCRIPT - GÄSTHANTERING OCH FORMULÄR
        ======================================== -->
   <script>
-    const FORM_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz-jw38g8bQA3J7y6AG7Fl0b7lYTMJxlg-oWpyHpRfZkBM33QSLTt24SMHIXTb1LlU2/exec';
+    const FORM_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyt9pivkna55utG2TsgowRpR_rMBl7NW4euqiJeczKNDlvR0AU9sf2SC7LRm9UE9PtH/exec';
     
     const initialAddBtn = document.getElementById('initialAddBtn');
     const guestList = document.getElementById('guestList');
@@ -467,11 +467,13 @@
             }
           }
           
-          // Skicka till Google Sheets
+          // Skicka till Google Sheets som urlencoded för att undvika CORS-preflight
+          const body = new URLSearchParams();
+          body.append('data', JSON.stringify(data));
+          
           const response = await fetch(FORM_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body
           });
           
           const result = await response.json();
