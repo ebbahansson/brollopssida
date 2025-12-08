@@ -75,8 +75,11 @@ const ScoreStorage = {
       // Filtrera bort tomma eller ogiltiga poster (t.ex. header-rader)
       const scores = (data.scores || []).filter(entry => {
         if (!entry || typeof entry !== 'object') return false;
+        if (entry.score === null || entry.score === undefined || entry.score === '') return false;
         const numericScore = Number(entry.score);
-        return Number.isFinite(numericScore);
+        if (!Number.isFinite(numericScore)) return false;
+        entry.score = numericScore; // normalisera
+        return true;
       });
       return scores.slice(0, 5);
     } catch (error) {
