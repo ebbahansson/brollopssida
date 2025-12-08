@@ -24,11 +24,11 @@ let score = 0;
 /* ========================================
    SCORE STORAGE - VÄXLA MELLAN LOCALSTORAGE OCH GOOGLE SHEETS
    ======================================== */
-const STORAGE_TYPE = 'localStorage'; // Byt till 'googleSheets' senare
+const STORAGE_TYPE = 'googleSheets'; // Byt till 'googleSheets' senare
 
 // Google Sheets config (fylls i när du är redo att byta)
 const GOOGLE_SHEETS_CONFIG = {
-  scriptUrl: '', // Din Google Apps Script Web App URL
+  scriptUrl: 'https://script.google.com/macros/s/AKfycby9N3OGmLilKUtFNJ7283JhujjGLtYiJXoX2-muBSkvbz6DLLxSdMtCAg4XN4mzFL20nw/exec',
   sheetName: 'Highscores'
 };
 
@@ -83,6 +83,7 @@ const ScoreStorage = {
     try {
       const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptUrl, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'saveScore', name: playerName, score: score })
       });
       const data = await response.json();
