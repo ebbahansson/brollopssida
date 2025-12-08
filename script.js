@@ -81,10 +81,16 @@ const ScoreStorage = {
 
   async saveGoogleScore(playerName, score) {
     try {
+      // Skicka som urlencoded för att undvika CORS-preflight
+      const body = new URLSearchParams({
+        action: 'saveScore',
+        name: playerName,
+        score: String(score)
+      });
+
       const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'saveScore', name: playerName, score: score })
+        body
       });
       const data = await response.json();
       return (data.scores || []).slice(0, 5);
