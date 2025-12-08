@@ -28,7 +28,7 @@ const STORAGE_TYPE = 'googleSheets'; // Byt till 'googleSheets' senare
 
 // Google Sheets config (fylls i när du är redo att byta)
 const GOOGLE_SHEETS_CONFIG = {
-  scriptUrl: 'https://script.google.com/macros/s/AKfycbzqQ0UGgXukZWe45ETIg481eYdO0dVtOj0pm1_vp4pEMF03pkdjPn5s2CN27mxO4xsgrQ/exec',
+  scriptUrl: 'https://script.google.com/macros/s/AKfycbxIcoyfyuM3uQb6iS0iiuxynaSeQwQoYkYP1oXDEtbrhJnmj4kb4FBUSFA2cyNVl7xpNw/exec',
   sheetName: 'Highscores'
 };
 
@@ -205,6 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
       openPopup();
       updateHighScoreDisplay(); // Ladda topplistan när popup öppnas
     });
+    
+    // Preladda scores i bakgrunden för snabbare visning
+    ScoreStorage.getHighScores().catch(() => {});
 
     // Stäng popup (X eller klick utanför)
     closeBtn?.addEventListener('click', closePopup);
@@ -506,18 +509,20 @@ function updateScore() {
 async function gameOver() {
   stopGame();
   
+  // Visa restart-knappen direkt
+  const restartBtn = document.getElementById('restartBtn');
+  restartBtn.style.display = 'inline-block';
+  
   // Visa prompt för namn
   const playerName = await promptPlayerName();
   
   // Spara score om användaren inte kryssat i "spara inte"
   if (playerName !== null) {
-    await ScoreStorage.saveScore(playerName || 'Gäst', score);
-    // Uppdatera topplistan
-    await updateHighScoreDisplay();
+    // Spara och uppdatera parallellt för snabbare feedback
+    ScoreStorage.saveScore(playerName || 'Gäst', score).then(() => {
+      updateHighScoreDisplay();
+    });
   }
-  
-  const restartBtn = document.getElementById('restartBtn');
-  restartBtn.style.display = 'inline-block';
 }
 
 function promptPlayerName() {
