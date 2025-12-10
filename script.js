@@ -554,12 +554,12 @@ function promptPlayerName() {
         border: 2px solid #fff5d6; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; 
         color: #fff5d6; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; 
         transition: all 0.2s ease;">✕</button>
-      <h3 style="color: #efbc22; font-family: 'Kage2', cursive; font-size: 2rem; margin: 0 0 1rem 0;">${translations[lang]['game-over-title']}</h3>
+      <h3 style="color: #f7d240; font-family: 'Kage2', cursive; font-size: 2rem; margin: 0 0 1rem 0;">${translations[lang]['game-over-title']}</h3>
       <p style="color: #fff5d6; margin-bottom: 1.5rem; font-size: 1.1rem;">${translations[lang]['game-over-text']} <strong>${score}</strong> ${translations[lang]['game-over-kisses']}</p>
       <input type="text" id="playerNameInput" placeholder="${translations[lang]['game-player-name']}" maxlength="20" 
         style="width: 100%; padding: 0.75rem; border: none; border-radius: 8px; font-size: 1rem; 
         font-family: 'Codesaver', monospace; background: #fff5d6; color: #2E5339; margin-bottom: 1rem; box-sizing: border-box;">
-      <button id="submitNameBtn" style="background: #efbc22; color: #2E5339; border: none; 
+      <button id="submitNameBtn" style="background: #f7d240; color: #2E5339; border: none; 
         padding: 0.75rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; 
         cursor: pointer; font-family: 'Codesaver', monospace; width: 100%;">${translations[lang]['game-save']}</button>
     `;
@@ -752,7 +752,7 @@ const translations = {
     'date-location': '3 JULI 2027  |  RWANDA',
     'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!',
     'info-text-2': 'Det är alltså inte nästa år, utan året därpå. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
-    'info-text-3': 'På den här sidan kommer vi lägga upp all information ni behöver inför resan och bröllopet.',
+    'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>. Intresseanmälan betyder inte att ni måste bestämma er än, men det hjälper oss massor med planeringen!',
     'cta-banner': 'Intresseanmälan',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -778,6 +778,10 @@ const translations = {
     'form-submit': 'Skicka din anmälan',
     'form-info-title': 'Missa ingen information',
     'form-info-text': 'Vi kommer även använda uppgifterna från formuläret ovan till framtida informationsutskick, så även om du inte vet just nu så skriv gärna upp dig så du inte missar någon information.',
+    'form-contact-title': 'Frågor eller funderingar?',
+    'form-contact-text': 'Frågor om bröllopet eller resan till Rwanda? Hör av dig! Vi svarar snabbare än Bryan hinner säga "Längdskidor är faktiskt kul”.',
+    'form-contact-bryan': 'Bryan',
+    'form-contact-ebba': 'Ebba',
     'form-sending': '⏳ Skickar...',
     'form-success': '✓ Skickat!',
     'form-error': '✕ Något gick fel',
@@ -850,7 +854,7 @@ const translations = {
     'date-location': 'JULY 3, 2027  |  RWANDA',
     'info-text-1': "Here's the thing - we're getting married! In Rwanda on July 3, 2027!",
     'info-text-2': "So it's not next year, but the year after. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
-    'info-text-3': 'On this page, we will post all the information you need before the trip and the wedding.',
+    'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form by <strong>March 31 2026</strong>. Filling it out doesn’t mean you have to make a final decision yet, but it helps us enormously with the planning!',
     'cta-banner': 'Register your interest',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -876,6 +880,10 @@ const translations = {
     'form-submit': 'Submit your registration',
     'form-info-title': "Don't miss any information",
     'form-info-text': "We will also use the information from the form above for future mailings, so even if you don't know right now, feel free to sign up so you don't miss any information.",
+    'form-contact-title': 'Questions or thoughts?',
+    'form-contact-text': 'Questions about the wedding or the trip to Rwanda? Get in touch! We’ll reply faster than Bryan can say, ‘Cross-country skiing is actually fun.’',
+    'form-contact-bryan': 'Bryan',
+    'form-contact-ebba': 'Ebba',
     'form-sending': '⏳ Sending...',
     'form-success': '✓ Sent!',
     'form-error': '✕ Something went wrong',
