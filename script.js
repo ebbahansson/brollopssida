@@ -752,7 +752,7 @@ const translations = {
     'date-location': '3 JULI 2027  |  RWANDA',
     'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!',
     'info-text-2': 'Det är alltså inte nästa år, utan året därpå. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
-    'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>. Intresseanmälan betyder inte att ni måste bestämma er än, men det hjälper oss massor med planeringen!',
+    'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>.',
     'cta-banner': 'Intresseanmälan',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -764,7 +764,7 @@ const translations = {
     
     // Formulär
     'form-title': 'Intresseanmälan',
-    'form-intro': 'Vi är i full gång med planeringen och skulle behöva lite hjälp för att få en känsla av hur många som kan tänka sig att följa med till Rwanda.<br><br>Fyll gärna i formuläret nedan så får vi en första indikation på om du har möjlighet att komma.',
+    'form-intro': 'Vi är i full gång med planeringen och skulle behöva lite hjälp för att få en känsla av hur många som kan tänka sig att följa med till Rwanda.<br><br>Intresseanmälan betyder inte att ni måste bestämma er än, men det hjälper oss massor med planeringen!',
     'form-name': 'Ditt namn',
     'form-email': 'Din e-post',
     'form-guests': 'Vill du lägga till fler gäster?',
@@ -854,7 +854,7 @@ const translations = {
     'date-location': 'JULY 3, 2027  |  RWANDA',
     'info-text-1': "Here's the thing - we're getting married! In Rwanda on July 3, 2027!",
     'info-text-2': "So it's not next year, but the year after. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
-    'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form by <strong>March 31 2026</strong>. Filling it out doesn’t mean you have to make a final decision yet, but it helps us enormously with the planning!',
+    'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form by <strong>March 31 2026</strong>.',
     'cta-banner': 'Register your interest',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -866,7 +866,7 @@ const translations = {
     
     // Form
     'form-title': 'Register your interest',
-    'form-intro': "We're in full swing with the planning and could use some help to get a sense of how many might be able to join us in Rwanda.<br><br>Please fill out the form below so we can get an initial indication of whether you'll be able to come.",
+    'form-intro': "We're in full swing with the planning and could use some help to get a sense of how many might be able to join us in Rwanda.<br><br>Filling it out doesn’t mean you have to make a final decision yet, but it helps us enormously with the planning!",
     'form-name': 'Your name',
     'form-email': 'Your email',
     'form-guests': 'Do you want to add more guests?',
@@ -958,10 +958,13 @@ function translatePage() {
   // Översätt alla element med data-i18n attribut
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations[lang][key];
       } else {
+        // Använd innerHTML för att tillåta HTML-taggar som <br> och <strong>
+        // Men rensa först för att undvika duplicering
+        element.innerHTML = '';
         element.innerHTML = translations[lang][key];
       }
     }
