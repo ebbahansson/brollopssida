@@ -1577,6 +1577,21 @@ body {
   text-shadow: none; /* remove heavy shadow to avoid double-vision effect */
 }
 
+/* Hindra faux-bold/dubbelrendering (särskilt på mobil) för Kage2-rubriker */
+.page-hero-title,
+.content-section h2,
+.form-container h2[data-i18n="form-info-title"],
+.form-container h3[data-i18n="form-contact-title"],
+.rwanda-gallery-section h2,
+.rwanda-activities-flex h2,
+.sakerhet-section h2 {
+  font-weight: 400;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 /* Lägg till skugga på Om Rwanda och Resa och boende hero-rubriker */
 .page-hero-title[data-i18n="page2-hero-title"],
 .page-hero-title[data-i18n="page3-hero-title"] {
