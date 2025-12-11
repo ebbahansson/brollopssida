@@ -958,15 +958,23 @@ function translatePage() {
   // Översätt alla element med data-i18n attribut
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-        element.placeholder = translations[lang][key];
-      } else {
-        // Använd innerHTML för att tillåta HTML-taggar som <br> och <strong>
-        // Men rensa först för att undvika duplicering
-        element.innerHTML = '';
-        element.innerHTML = translations[lang][key];
-      }
+    const value = translations[lang] && translations[lang][key];
+    if (!value) return;
+
+    // Inputs & textareas: använd placeholder
+    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      element.placeholder = value;
+      return;
+    }
+
+    // Om översättningen innehåller HTML-taggar, rensa först och använd innerHTML.
+    // Annars använd textContent (minskar risk för dubbelrendering av rubriker).
+    const hasHtml = value.includes('<');
+    if (hasHtml) {
+      element.innerHTML = '';
+      element.innerHTML = value;
+    } else {
+      element.textContent = value;
     }
   });
   
