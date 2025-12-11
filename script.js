@@ -950,7 +950,14 @@ let currentLanguage = localStorage.getItem('siteLanguage') || 'sv';
 window.translations = translations;
 window.currentLanguage = currentLanguage;
 
+// Flagga för att förhindra överlappande translatePage() anrop
+let isTranslating = false;
+
 function translatePage() {
+  // Förhindra överlappande översättningar som kan orsaka duplicering
+  if (isTranslating) return;
+  isTranslating = true;
+  
   // Uppdatera globalt språk
   window.currentLanguage = currentLanguage;
   const lang = currentLanguage;
@@ -995,6 +1002,9 @@ function translatePage() {
   if (document.getElementById('highScoreList') || document.getElementById('highScoreSheet')) {
     updateHighScoreDisplay();
   }
+  
+  // Återställ flagga när översättningen är klar
+  isTranslating = false;
 }
 
 // Uppdatera apa-bilder baserat på aktuellt språk
