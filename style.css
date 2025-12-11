@@ -1574,7 +1574,7 @@ body {
   background: transparent;
   text-align: center;
   line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(46, 83, 57, 0.8);
+  text-shadow: none; /* remove heavy shadow to avoid double-vision effect */
 }
 
 /* ========================================
@@ -1603,6 +1603,16 @@ body {
   font-size: 2.5rem;
   color: #f7d240;
   margin-bottom: 1rem;
+  text-shadow: none; /* ensure crisp single render on headings */
+}
+
+/* Extra säkerhet mot dubbelsyn på utvalda rubriker */
+.form-container h2[data-i18n="form-info-title"],
+.form-container h3[data-i18n="form-contact-title"],
+.rwanda-gallery-section h2,
+.rwanda-activities-flex h2,
+.sakerhet-section h2 {
+  text-shadow: none;
 }
 
 /* Specifik färg för rubriken "Att göra i Rwanda" */
@@ -1910,7 +1920,6 @@ body {
     font-size: 2.6rem; /* minska även storleken lite på mobil */
   }
 }
-
 /* ========================================
    LIGHTBOX FÖR RWANDA-GALLERI
    ======================================== */
