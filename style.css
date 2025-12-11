@@ -1577,6 +1577,12 @@ body {
   text-shadow: none; /* remove heavy shadow to avoid double-vision effect */
 }
 
+/* Lägg till skugga på Om Rwanda och Resa och boende hero-rubriker */
+.page-hero-title[data-i18n="page2-hero-title"],
+.page-hero-title[data-i18n="page3-hero-title"] {
+  text-shadow: 2px 2px 8px rgba(46, 83, 57, 0.8);
+}
+
 /* ========================================
    SCROLLBAR BILD (PAGE 1)
    ======================================== */
@@ -1905,10 +1911,12 @@ body {
     padding: 1.5rem 2rem;
     padding-right: 2rem;
     white-space: normal;
+    text-shadow: none; /* no shadow on mobile headings */
   }
   
   .content-section h2 {
     font-size: 2rem;
+    text-shadow: none; /* no shadow on mobile content headings */
   }
   
   .content-section p {
