@@ -1602,11 +1602,18 @@ body {
    SCROLLBAR BILD (PAGE 1)
    ======================================== */
 .page1-scrollable-image {
-  width: 80%;
+  width: 75%;
   height: auto;
   display: block;
   object-fit: contain;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page1-scrollable-image {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .page-content {

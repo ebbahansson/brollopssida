@@ -184,6 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Översätt sidan vid laddning
   translatePage();
   updateApeImages();
+  // Uppdatera favicon och busta cache så den följer med
+  updateFavicon();
 
   // Lägg till event listeners för båda språkknapparna
   const preGateLanguageBtn = document.getElementById('preGateLanguageBtn');
@@ -1028,6 +1030,7 @@ function toggleLanguage() {
   translatePage();
   updateApeImages();
   updatePage1Image();
+  updateFavicon();
 
   // Stäng hamburgermenyn om språkknappen i menyn trycks
   const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -1075,11 +1078,25 @@ function updateFrontpageImages() {
 function updatePage1Image() {
   const page1Image = document.getElementById('page1Image');
   if (!page1Image) return;
+  const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
   if (currentLanguage === 'en') {
-    page1Image.src = page1Image.dataset.srcEn;
+    page1Image.src = isMobile && page1Image.dataset.srcEnMobile
+      ? page1Image.dataset.srcEnMobile
+      : page1Image.dataset.srcEn;
   } else {
-    page1Image.src = page1Image.dataset.srcSv;
+    page1Image.src = isMobile && page1Image.dataset.srcSvMobile
+      ? page1Image.dataset.srcSvMobile
+      : page1Image.dataset.srcSv;
   }
+}
+
+// === Uppdatera favicon och busta cache ===
+function updateFavicon() {
+  const link = document.querySelector('link#favicon');
+  if (!link) return;
+  const baseHref = 'bilder/Favicon/favicon_apa.png';
+  const cacheBuster = `?v=${Date.now()}`;
+  link.href = `${baseHref}${cacheBuster}`;
 }
 
 // Kör vid språkbyte och vid sidladdning
