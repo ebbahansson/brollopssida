@@ -1580,6 +1580,7 @@ body {
 /* Hindra faux-bold/dubbelrendering (särskilt på mobil) för Kage2-rubriker */
 .page-hero-title,
 .content-section h2,
+.form-container h1[data-i18n="form-title"],
 .form-container h2[data-i18n="form-info-title"],
 .form-container h3[data-i18n="form-contact-title"],
 .rwanda-gallery-section h2,
@@ -1637,6 +1638,7 @@ body {
 /* Extra säkerhet mot dubbelsyn på utvalda rubriker */
 .form-container h2[data-i18n="form-info-title"],
 .form-container h3[data-i18n="form-contact-title"],
+.form-container h1[data-i18n="form-title"],
 .rwanda-gallery-section h2,
 .rwanda-activities-flex h2,
 .sakerhet-section h2 {
