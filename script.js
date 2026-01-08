@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   canvas = document.getElementById('snakeCanvas');
+  const gameScreenEl = document.getElementById('gameScreen');
   if (canvas) {
     ctx = canvas.getContext('2d');
 
@@ -275,6 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
       handleSwipe();
     }, { passive: false });
 
+    // Förhindra dubbel-tap-zoom under spelet (iOS/in-app browsers)
+    let lastTouchEnd = 0;
+    gameScreenEl?.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 350) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, { passive: false });
+
     function handleSwipe() {
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
@@ -349,7 +360,7 @@ function closePopup() {
 /* ========================================
    SPELLOGIK - START, STOPP OCH KONTROLLER
    ======================================== */
-function startGame() {
+async function startGame() {
   stopGame();
   
   // Dölj restart-knappen när spelet startar
@@ -370,6 +381,8 @@ function startGame() {
   canvas.height = canvasPx;
   canvas.style.width = canvas.width + 'px';
   canvas.style.height = canvas.height + 'px';
+  canvas.style.border = '2px solid #f7d240';
+  canvas.style.boxSizing = 'border-box';
 
   canvas.style.display = 'block';
   canvas.style.margin = '0 auto';
@@ -384,9 +397,13 @@ function startGame() {
   updateScore();
 
   placeFood();
+  draw();
+
+  // Visa countdown före spelstart
+  await showCountdown();
+
   running = true;
   gameInterval = setInterval(gameTick, TICK_MS);
-  draw();
 }
 
 function stopGame() {
@@ -395,6 +412,67 @@ function stopGame() {
     clearInterval(gameInterval);
     gameInterval = null;
   }
+}
+
+function showCountdown() {
+  return new Promise((resolve) => {
+    const countdownEl = document.createElement('div');
+    countdownEl.style.position = 'absolute';
+    countdownEl.style.top = '50%';
+    countdownEl.style.left = '50%';
+    countdownEl.style.transform = 'translate(-50%, -50%)';
+    countdownEl.style.width = '100px';
+    countdownEl.style.height = '100px';
+    countdownEl.style.borderRadius = '50%';
+    countdownEl.style.background = '#2E5339';
+    countdownEl.style.border = '5px solid #f7d240';
+    countdownEl.style.display = 'flex';
+    countdownEl.style.alignItems = 'center';
+    countdownEl.style.justifyContent = 'center';
+    countdownEl.style.fontSize = '4rem';
+    countdownEl.style.fontWeight = 'bold';
+    countdownEl.style.color = '#f7d240';
+    countdownEl.style.fontFamily = 'Kage2, cursive';
+    countdownEl.style.zIndex = '100';
+    countdownEl.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4)';
+    countdownEl.style.pointerEvents = 'none';
+    
+    const gameScreen = document.getElementById('gameScreen');
+    gameScreen.style.position = 'relative';
+    gameScreen.appendChild(countdownEl);
+    
+    let count = 3;
+    countdownEl.textContent = count;
+    
+    const interval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        countdownEl.textContent = count;
+      } else {
+        countdownEl.textContent = 'GO!';
+        countdownEl.style.fontSize = '3rem';
+        setTimeout(() => {
+          gameScreen.removeChild(countdownEl);
+          resolve();
+        }, 600);
+        clearInterval(interval);
+      }
+    }, 1000);
+    
+    // Lägg till CSS animation om den inte finns
+    if (!document.getElementById('countdownAnimation')) {
+      const style = document.createElement('style');
+      style.id = 'countdownAnimation';
+      style.textContent = `
+        @keyframes countdownPulse {
+          0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+          50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+          100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  });
 }
 
 function handleKey(e) {
@@ -753,7 +831,7 @@ const translations = {
     'hero-title': 'Vi ska gifta oss!',
     'date-location': '3 JULI 2027  |  RWANDA',
     'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!',
-    'info-text-2': 'Det är alltså inte nästa år, utan året därpå. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
+    'info-text-2': 'Det är alltå inte i år, utan nästa år. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
     'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>.',
     'cta-banner': 'Intresseanmälan',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
@@ -825,6 +903,7 @@ const translations = {
     // Spel
     'game-title': 'Kyssjakten 💋',
     'game-subtitle': 'Hur många kyssar kan Ebba få?',
+    'game-instructions': 'Styr Bryan till Ebba med piltangenterna (eller svajpa på mobil). Samla kyssar och undvik att krocka med väggarna eller dig själv!',
     'game-start': 'Starta',
     'game-score': 'Kyssar',
     'game-restart': 'Spela igen',
@@ -855,7 +934,7 @@ const translations = {
     'hero-title': "We're getting married!",
     'date-location': 'JULY 3, 2027  |  RWANDA',
     'info-text-1': "Here's the thing - we're getting married! In Rwanda on July 3, 2027!",
-    'info-text-2': "So it's not next year, but the year after. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
+    'info-text-2': "So it's not this year, but next year. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
     'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form by <strong>March 31 2026</strong>.',
     'cta-banner': 'Register your interest',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
@@ -931,6 +1010,7 @@ const translations = {
     // Game
     'game-title': 'The Kiss Hunt 💋',
     'game-subtitle': 'How many kisses can Ebba get?',
+    'game-instructions': 'Control Bryan to reach Ebba using the arrow keys (or swipe on mobile). Collect kisses and avoid crashing into walls or yourself!',
     'game-start': 'Start',
     'game-score': 'Kisses',
     'game-restart': 'Play again',

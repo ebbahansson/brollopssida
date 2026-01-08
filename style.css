@@ -1900,12 +1900,12 @@ body {
 @media (max-width: 768px) {
   .hero {
     height: 70vh;
-    margin: -5.5rem 0 -0.5rem 0;
+    margin: 0;
   }
 
   .hero-img {
     margin-top: 0;
-    margin-bottom: -10.2rem;
+    margin-bottom: 0;
   }
 
   .hero-subtitle {
