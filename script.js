@@ -831,7 +831,7 @@ const translations = {
     'hero-title': 'Vi ska gifta oss!',
     'date-location': '3 JULI 2027  |  RWANDA',
     'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!',
-    'info-text-2': 'Det är alltå inte i år, utan nästa år. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
+    'info-text-2': 'Det är alltså inte i år, utan nästa år. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
     'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>.',
     'cta-banner': 'Intresseanmälan',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
