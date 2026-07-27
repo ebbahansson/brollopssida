@@ -52,13 +52,33 @@
   </section>
 
   <!-- ========================================
-       INNEHÅLL
+       INNEHÅLL (Två rader: bild + text, alternerande)
        ======================================== -->
   <main class="page-content">
-    <section class="content-section">
-      <h2 data-i18n="page2-section1-title">Här var det visst lite tomt...</h2>
-      <p data-i18n="page2-section1-text 1">Här kommer vi fylla på med information om resan till Rwanda och hur ni ska göra med resa, boende, visum och allt sånt.</p>
-      <p data-i18n="page2-section1-text 2">Håll utkik, och glöm inte att fylla i intresseanmälan så att ni inte missar någon viktig information!</p>
+
+    <!-- Rad 1: Bild vänster, text höger -->
+    <section class="content-row">
+      <div class="content-image">
+        <img src="bilder/sida2/kigali_airport.png" alt="Ta sig dit - bild" />
+      </div>
+      <div class="content-text">
+        <h2 data-i18n="page2-transport-title">Ta sig dit</h2>
+        <!-- Text: använd data-i18n för att översätta via script.js -->
+        <p data-i18n="page2-transport-text">Vi kommer hålla till i Kigali, Rwandas huvudstad. Ta sig dit gör man smidigast till <strong>Kigali International Airport</strong>.<br><br>Många internationella flygbolag har anslutningar till Kigali, exempelvis <strong>Turkish Airlines, Ethiopian Airlines eller KLM</strong>.<br><br>Kika på www.flygresor.se eller annan likvärdig sida och ta det som passar er resplan och plånbok!</p>
+      </div>
+    </section>
+    <div class="wave-divider" aria-hidden="true"></div>
+
+    <!-- Rad 2: Bild höger, text vänster -->
+    <section class="content-row reverse">
+      <div class="content-text">
+        <h2 data-i18n="page2-accommodation-title">Boende</h2>
+        <!-- Text: använd data-i18n för att översätta via script.js -->
+        <p data-i18n="page2-accommodation-text">Vår stora förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen – vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i slutet av augusti!</p>
+      </div>
+      <div class="content-image">
+        <img src="bilder/sida2/serena.png" alt="Boende - bild" />
+      </div>
     </section>
 
     <!-- Vit blomma clipart -->
