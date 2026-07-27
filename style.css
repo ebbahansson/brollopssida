@@ -403,6 +403,37 @@ body {
   gap: 0.8rem;
 }
 
+/* ========================================
+   PAGE2: CONTENT ROWS (bild + text) - använder CSS Grid
+   ======================================== */
+.page-content { padding: 2rem 4rem 4rem; }
+.content-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin: 2.5rem 0;
+  grid-template-areas: "img txt";
+}
+.content-row.reverse {
+  grid-template-areas: "txt img";
+}
+.content-image { grid-area: img; }
+.content-text { grid-area: txt; }
+.content-image img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); display: block; }
+.content-text h2 { font-family: 'Kage2', cursive; color: #f7d240; margin: 0 0 0.6rem 0; font-size: 2rem; line-height: 1.1; }
+.content-text p { font-family: 'Codesaver', monospace; color: #fff5d6; margin: 0 0 0.8rem 0; font-size: 1.05rem; line-height: 1.45; }
+
+/* Språkhantering: visa/smyg dolda språk via JS genom att toggla inline style eller klass */
+.sv-text { display: block; }
+.en-text { display: none; }
+
+@media (max-width: 900px) {
+  .page-content { padding: 1.2rem 1.2rem 2rem; }
+  .content-row { grid-template-columns: 1fr; gap: 1.2rem; grid-template-areas: "txt" "img"; }
+  .content-row.reverse { grid-template-areas: "txt" "img"; }
+}
+
 .hamburger-menu ul li {
   position: relative;
   text-align: center;
@@ -1673,6 +1704,17 @@ body {
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Make content images visually match page3 (border-radius and box-shadow)
+   without being links or having hover effects */
+.content-row .content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 /* ========================================

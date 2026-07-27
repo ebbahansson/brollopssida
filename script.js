@@ -829,8 +829,8 @@ const translations = {
     
     // Startsida
     'hero-title': 'Vi ska gifta oss!',
-    'date-location': '3 JULI 2027  |  RWANDA',
-    'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Rwanda den 3 juli 2027!',
+    'date-location': '3 JULI 2027  |  KIGALI, RWANDA',
+    'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Kigali, Rwanda, den 3 juli 2027!',
     'info-text-2': 'Det är alltså inte i år, utan nästa år. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
     'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan så snart ni kan.',
     'cta-banner': 'Intresseanmälan',
@@ -871,6 +871,13 @@ const translations = {
     'page2-section1-title': 'Här var det visst lite tomt...',
     'page2-section1-text 1': 'Här kommer vi fylla på med information om resan till Rwanda och hur ni ska göra med resa, boende, visum och allt sånt.',
     'page2-section1-text 2': 'Håll utkik, och glöm inte att fylla i intresseanmälan så att ni inte missar någon viktig information!',
+
+    /* Nya nycklar för page2-sektionen (används i page2.html) */
+    'page2-transport-title': 'Ta sig dit',
+    'page2-transport-text': 'Vi kommer hålla till i Kigali, Rwandas huvudstad. Ta sig dit gör man smidigast till <strong>Kigali International Airport</strong>.<br><br>Många internationella flygbolag har anslutningar till Kigali, exempelvis <strong>Turkish Airlines, Ethiopian Airlines eller KLM</strong>.<br><br>Kika på www.flygresor.se eller annan likvärdig sida och ta det som passar er resplan och plånbok!',
+
+    'page2-accommodation-title': 'Boende',
+    'page2-accommodation-text': 'Vår stora förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen – vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i <strong>slutet av augusti</strong>!',
 
     'page2-section2-title': 'Boende',
     'page2-section2-text': 'Information om boende...',
@@ -932,8 +939,8 @@ const translations = {
     
     // Homepage
     'hero-title': "We're getting married!",
-    'date-location': 'JULY 3, 2027  |  RWANDA',
-    'info-text-1': "Here's the thing - we're getting married! In Rwanda on July 3, 2027!",
+    'date-location': 'JULY 3, 2027  |  KIGALI, RWANDA',
+    'info-text-1': "Here's the thing - we're getting married! In Kigali, Rwanda on July 3, 2027!",
     'info-text-2': "So it's not this year, but next year. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
     'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form as soon as possible.',
     'cta-banner': 'Register your interest',
@@ -974,6 +981,13 @@ const translations = {
     'page2-section1-title': 'Looks a little empty here...',
     'page2-section1-text 1': 'We’ll soon fill this section with information about the trip to Rwanda and everything you need to know about travel, accommodation, visas, and more.',
     'page2-section1-text 2': 'Stay tuned and don’t forget to fill in the registration form so you don’t miss any important information!',
+    /* New keys for page2 (used in page2.html) */
+    'page2-transport-title': 'Getting there',
+    'page2-transport-text': "We'll be based in Kigali, Rwanda's capital. The easiest way to get there is via Kigali International Airport.<br><br>Many international airlines fly to Kigali, for example Turkish Airlines, Ethiopian Airlines, and KLM.<br><br>Check www.flygresor.se or another comparable site and choose the option that fits your travel plans and budget.",
+
+    'page2-accommodation-title': 'Accommodation',
+    'page2-accommodation-text': "Our hope is that all our guests can stay together for the whole wedding weekend — we believe that will make the experience even more fun and memorable!<br><br>We are currently negotiating a very good hotel rate, so please bear with us while we finalize the details. As soon as everything is ready we will let you know so you can book. We hope to have all information ready by the end of August!",
+
     'page2-section2-title': 'Accommodation',
     'page2-section2-text': 'Accommodation information...',
 
