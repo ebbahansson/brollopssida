@@ -873,10 +873,10 @@ const translations = {
     'page2-section1-text 2': 'Håll utkik, och glöm inte att fylla i intresseanmälan så att ni inte missar någon viktig information!',
 
     /* Nya nycklar för page2-sektionen (används i page2.html) */
-    'page2-transport-title': 'Ta sig dit',
+    'page2-transport-title': 'ᯓ ✈︎ Ta sig dit',
     'page2-transport-text': 'Vi kommer hålla till i Kigali, Rwandas huvudstad. Ta sig dit gör man smidigast till <strong>Kigali International Airport</strong>.<br><br>Många internationella flygbolag har anslutningar till Kigali, exempelvis <strong>Turkish Airlines, Ethiopian Airlines eller KLM</strong>.<br><br>Kika på www.flygresor.se eller annan likvärdig sida och ta det som passar er resplan och plånbok!',
 
-    'page2-accommodation-title': 'Boende',
+    'page2-accommodation-title': '⛱ Boende',
     'page2-accommodation-text': 'Vår stora förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen – vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i <strong>slutet av augusti</strong>!',
 
     'page2-section2-title': 'Boende',
@@ -982,13 +982,13 @@ const translations = {
     'page2-section1-text 1': 'We’ll soon fill this section with information about the trip to Rwanda and everything you need to know about travel, accommodation, visas, and more.',
     'page2-section1-text 2': 'Stay tuned and don’t forget to fill in the registration form so you don’t miss any important information!',
     /* New keys for page2 (used in page2.html) */
-    'page2-transport-title': 'Getting there',
+    'page2-transport-title': 'ᯓ ✈︎ Getting there',
     'page2-transport-text': "We'll be based in Kigali, Rwanda's capital. The easiest way to get there is via Kigali International Airport.<br><br>Many international airlines fly to Kigali, for example Turkish Airlines, Ethiopian Airlines, and KLM.<br><br>Check www.flygresor.se or another comparable site and choose the option that fits your travel plans and budget.",
 
-    'page2-accommodation-title': 'Accommodation',
+    'page2-accommodation-title': '⛱ Accommodation',
     'page2-accommodation-text': "Our hope is that all our guests can stay together for the whole wedding weekend — we believe that will make the experience even more fun and memorable!<br><br>We are currently negotiating a very good hotel rate, so please bear with us while we finalize the details. As soon as everything is ready we will let you know so you can book. We hope to have all information ready by the end of August!",
 
-    'page2-section2-title': 'Accommodation',
+    'page2-section2-title': '⛱ Accommodation',
     'page2-section2-text': 'Accommodation information...',
 
     // Page 3 - Rwanda
