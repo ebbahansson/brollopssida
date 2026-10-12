@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Icon placeholder">
+  <rect x="10" y="10" width="108" height="108" rx="54" fill="none" stroke="#9a7770" stroke-width="2" stroke-dasharray="5 5" />
+  <path d="M42 49h44v30H42zM51 42h26v7H51zM52 79l8-10 7 7 8-9 9 12" fill="none" stroke="#9a7770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="74" cy="58" r="3" fill="#9a7770" />
+  <text x="64" y="100" fill="#9a7770" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">ICON</text>
+</svg>

@@ -821,6 +821,21 @@ const translations = {
     'nav-travel': 'Resa och boende',
     'nav-rwanda': 'Om Rwanda',
     'nav-form': 'Formulär',
+    'nav-faq': 'Frågor och svar',
+    'nav-schedule': 'Schema',
+    'schema-page-title': 'Schema',
+    'schema-title': 'Helgens schema',
+    'schema-intro': 'Vi är så glada att ni vill fira tillsammans med oss. Här är hela schemat för helgens aktiviteter:',
+    'schema-friday-name': 'FREDAG',
+    'schema-friday-date': '2 JULI 2027',
+    'schema-saturday-name': 'LÖRDAG',
+    'schema-saturday-date': '3 JULI 2027',
+    'schema-sunday-name': 'SÖNDAG',
+    'schema-sunday-date': '4 JULI 2027',
+    'schema-attire-welcome': 'Klädsel: Avslappnat och festligt – kom som du är!',
+    'schema-attire-wedding': 'Klädsel: Kavaj eller traditionell klädsel',
+    'schema-safari-title': 'Följ med på safari',
+    'schema-safari-text': 'Efter bröllopshelgen finns möjlighet att följa med på safari i Rwanda. Det är helt frivilligt, så du kan självklart vara med och fira bröllopet utan att följa med på safarin.',
     'back-link': '← Tillbaka',
     
     // Lösenordssida
@@ -833,6 +848,20 @@ const translations = {
     'info-text-1': 'Så här ligger det till - vi ska gifta oss! I Kigali, Rwanda, den 3 juli 2027!',
     'info-text-2': 'Det är alltså inte i år, utan nästa år. Eftersom kombinationen bröllop + annan världsdel kan vara lite av ett pussel vill vi informera i god tid så att alla som vill kan vara med och fira med oss.',
     'info-text-3': 'För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan så snart ni kan.',
+    'home-video-title': 'En hälsning från oss',
+    'schedule-friday-day': 'Fredag 2/7',
+    'schedule-friday-event': 'Välkomstkväll',
+    'schedule-friday-place': 'TBA',
+    'schedule-friday-time': '17:00',
+    'schedule-saturday-day': 'Lördag 3/7',
+    'schedule-saturday-event': 'Bröllop',
+    'schedule-saturday-place': 'Heaven Garden Rebero',
+    'schedule-saturday-time': '14:00',
+    'schedule-sunday-day': 'Söndag 4/7',
+    'schedule-sunday-event': 'Brunch',
+    'schedule-sunday-place': 'Kigali Serena Hotel',
+    'schedule-sunday-time': '10:00',
+    'schedule-button': 'Hela schemat →',
     'cta-banner': 'Intresseanmälan',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -877,7 +906,7 @@ const translations = {
     'page2-transport-text': 'Vi kommer hålla till i Kigali, Rwandas huvudstad. Ta sig dit gör man smidigast till <strong>Kigali International Airport</strong>.<br><br>Många internationella flygbolag har anslutningar till Kigali, exempelvis <strong>Turkish Airlines, Ethiopian Airlines eller KLM</strong>.<br><br>Kika på www.flygresor.se eller annan likvärdig sida och ta det som passar er resplan och plånbok!',
 
     'page2-accommodation-title': 'Boende',
-    'page2-accommodation-text': 'Vår stora förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen – vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i <strong>slutet av augusti</strong>!',
+    'page2-accommodation-text': 'Vår förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen. Vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i oktober!',
 
     'page2-section2-title': 'Boende',
     'page2-section2-text': 'Information om boende...',
@@ -907,6 +936,43 @@ const translations = {
     'page3-security-text': 'Rwanda anses nu som ett av de säkraste länderna i Afrika, och Kigali är känt för att vara rent, organiserat och relativt lugnt. Våldsbrott mot besökare är sällsynta, men normal uppmärksamhet och sunt förnuft gäller alltid.',
     'page3-security-link-text': 'Läs mer på UD:s webbplats:',
     'page3-security-link': 'Sverige utomlands – Rwanda säkerhetssituation',
+    // FAQ
+    'faq-page-title': 'Frågor och svar',
+    'faq-title': 'Frågor och svar',
+    'faq-intro': 'Här har vi samlat svar på några frågor som kan dyka upp inför bröllopet och resan till Rwanda.',
+    'faq-category-wedding': 'Bröllopet',
+    'faq-category-travel': 'Resan till Rwanda',
+    'faq-category-other': 'Övrigt',
+    'faq-question-1': 'Vad är schemat för bröllopshelgen?',
+    'faq-answer-1': 'Vi firar hela helgen! Hela schemat och mer detaljer hittar ni här: <a href="/schema">Hela schemat</a>.',
+    'faq-question-2': 'Vad är det för klädkod?',
+    'faq-answer-2': '<p>Bröllopsdagen består av både en traditionell rwandisk del och en svensk vigsel, och det får gärna synas även i klädseln! Klädkoden är därför kavaj eller traditionell klädsel: rwandisk mushanana eller svensk folkdräkt.</p><p>Under resten av bröllopshelgen finns ingen särskild klädkod, kom i det du känner dig bekväm och fin i!</p>',
+    'faq-question-3': 'Vad är Gusaba?',
+    'faq-answer-3': '<p>Gusaba är en traditionell rwandisk ceremoni där de två familjerna formellt möts och brudens hand efterfrågas. Traditionellt är det en stor och viktig del av ett rwandiskt bröllop, med bland annat tal, musik, dans och symboliska gåvor mellan familjerna.</p><p>För många av våra gäster blir det första gången de upplever en Gusaba så det är bara att luta sig tillbaka och följa med!</p>',
+    'faq-question-4': 'När ska jag boka resa?',
+    'faq-answer-4': '<p>Vi rekommenderar att börja hålla koll på flyg ungefär 6–9 månader innan bröllopet. Det finns ingen anledning att boka så fort biljetterna släpps, men vänta helst inte till sista minuten.</p><p>Flyg till Kigali går vanligtvis med åtminstone ett stopp från Sverige, så jämför gärna olika resdagar och rutter.</p>',
+    'faq-question-5': 'När ska man anlända?',
+    'faq-answer-5': '<p>Firandet börjar fredag 2 juli, så vi rekommenderar att ni landar i Kigali så ni hinner dit.</p><p>Har ni möjlighet får ni gärna komma ännu tidigare! Då hinner ni landa efter resan och upptäcka lite av Kigali innan bröllopshelgen börjar.</p>',
+    'faq-question-6': 'Var ska man bo?',
+    'faq-answer-6': '<p>Vi rekommenderar att bo i Kigali under hela bröllopshelgen. Vår förhoppning är att så många som möjligt ska bo på samma hotell, så att det blir enkelt med transporter och roligare att fortsätta umgås mellan bröllopseventen.</p><p>Vi återkommer med rekommenderat hotell, priser och information om bokning.</p>',
+    'faq-question-7': 'Behövs visum?',
+    'faq-answer-7': '<p>Ja. Som svensk medborgare kan du antingen få visum vid ankomst till Rwanda eller ansöka online innan resan.</p><p>Om du planerar att även besöka Uganda eller Kenya kan du istället ansöka om ett East Africa Tourist Visa (EATV). Det gäller för Rwanda, Uganda och Kenya i 90 dagar och gör det möjligt att resa mellan de tre länderna på samma visum. EATV kan bara ordnas vid ankomst.</p><p>Här kan du ansöka om visum och läsa mer på <a href="https://support.irembo.gov.rw/en/support/solutions/articles/47001155415-how-to-apply-for-a-visa?utm_source=irembogov_web&amp;utm_medium=navbar_btn&amp;utm_campaign=KB_Visibility_On_IremboGov" target="_blank" rel="noopener noreferrer">Rwandas officiella migrationssida</a>.</p>',
+    'faq-question-8': 'Vad behöver jag för vaccinationer?',
+    'faq-answer-8': '<p>Vilka vaccinationer som rekommenderas beror bland annat på vilka vaccinationer du redan har och om du planerar att resa vidare i regionen.</p><p>För den som reser direkt från Sverige krävs normalt inget intyg om vaccination mot gula febern för inresa i Rwanda. Bland annat hepatit A brukar rekommenderas inför resor till regionen, och malaria förekommer i Rwanda.</p><p>Vi rekommenderar därför att boka tid på en vaccinationsmottagning i god tid och få rekommendationer utifrån just din resa.</p>',
+    'faq-question-9': 'Hur tar jag mig runt i Kigali?',
+    'faq-answer-9': '<p>Det är relativt enkelt och billigt att ta sig runt i Kigali. Hotell kan hjälpa till att boka taxi, och appar som VW Move och Green Ride fungerar ungefär som Uber. För apparna är det bra att ha ett lokalt SIM-kort, eftersom föraren ofta ringer för att bekräfta var du befinner dig innan upphämtning.</p><p>Google Maps fungerar bra för att hitta runt, men adresser används inte alltid på samma sätt som i Sverige. Det kan därför vara bra att även ha namnet på hotellet, restaurangen eller platsen du ska till.</p><p>Under själva bröllopshelgen kommer vi att ordna gemensam transport till och från de event där det behövs. Mer information kommer närmare bröllopet.</p>',
+    'faq-question-10': 'Vilken valuta används och kan jag betala med kort?',
+    'faq-answer-10': '<p>Valutan i Rwanda är rwandisk franc (RWF).</p><p>Kort fungerar på många hotell, restauranger och större butiker i Kigali, men kontanter används fortfarande mycket, framför allt på mindre ställen och utanför Kigali. Bankomater finns på många ställen i staden, så det finns ingen anledning att växla stora mängder pengar innan resan.</p><p>Ett tips är helt enkelt att ha både kort och lite kontanter tillgängligt.</p>',
+    'faq-question-11': 'Hur fungerar mobil och SIM-kort i Rwanda?',
+    'faq-answer-11': '<p>Du kan skaffa lokalt SIM-kort på flygplatsen när du landar. MTN och Airtel är de stora operatörerna och erbjuder kontantkort med mobildata. Ta med passet eftersom SIM-kortet behöver registreras, du behöver även kontanter till detta.</p><p>Om din telefon stödjer eSIM är det också ett smidigt alternativ att ordna innan resan. Då har du internet direkt när du landar.</p><p>Wi-Fi finns på de flesta hotell och många restauranger och caféer, men vi rekommenderar att ha mobildata under resan, det gör allt från kartor till taxi och kontakt med resten av bröllopsgänget mycket enklare.</p>',
+    'faq-question-12': 'Är barn välkomna?',
+    'faq-answer-12': 'Absolut, barn är varmt välkomna! Om ni vill göra resan till en familjesemester eller passa på att resa på tu man hand är helt upp till er, gör det som passar er bäst!',
+    'faq-question-13': 'Vad kan jag göra i Rwanda förutom att gå på bröllop?',
+    'faq-answer-13': '<p>Massor! Vi hoppas att många av er passar på att upptäcka Rwanda eller andra delar av Afrika när ni ändå är där.</p><p>Vi kommer att samla våra bästa tips på saker att göra, äta och uppleva på hemsidan!</p>',
+    'faq-question-14': 'Vad önskar ni er i present?',
+    'faq-answer-14': '<p>Att ni tar er hela vägen till Rwanda för att fira med oss är mer än nog! Vi vet att resan innebär både tid och pengar, så vi önskar oss verkligen inga presenter.</p><p>Om ni ändå vill ge oss något uppskattar vi såklart omtanken! Men eftersom vi helst slipper pussla ner fler saker i resväskorna på hemvägen är ett presentkort på en middag, en upplevelse eller ett bidrag till framtida äventyr lite smidigare. 😊</p>',
+    'faq-question-15': 'Vem har highscore i Kyssjakten?',
+    'faq-answer-15': '<p>Bra fråga. Det finns bara ett sätt att ta reda på det. 👀</p><p>Kyssjakten gömmer sig någonstans på hemsidan. Hittar du den kanske det är ditt namn som står högst upp på listan sen!</p>',
     // Spel
     'game-title': 'Kyssjakten 💋',
     'game-subtitle': 'Hur många kyssar kan Ebba få?',
@@ -931,6 +997,21 @@ const translations = {
     'nav-travel': 'Travel & Accommodation',
     'nav-rwanda': 'About Rwanda',
     'nav-form': 'Registration form',
+    'nav-faq': 'FAQ',
+    'nav-schedule': 'Schedule',
+    'schema-page-title': 'Schedule',
+    'schema-title': 'Weekend schedule',
+    'schema-intro': 'We are so grateful to have you with us to celebrate. Below is the full schedule of weekend events:',
+    'schema-friday-name': 'FRIDAY',
+    'schema-friday-date': 'JULY 2, 2027',
+    'schema-saturday-name': 'SATURDAY',
+    'schema-saturday-date': 'JULY 3, 2027',
+    'schema-sunday-name': 'SUNDAY',
+    'schema-sunday-date': 'JULY 4, 2027',
+    'schema-attire-welcome': 'Attire: Relaxed and festive — come as you are!',
+    'schema-attire-wedding': 'Attire: Lounge suit or traditional attire',
+    'schema-safari-title': 'Join us on safari',
+    'schema-safari-text': 'After the wedding weekend, you can join us for a safari in Rwanda. It is completely optional, so you are very welcome to celebrate with us even if you do not join the safari.',
     'back-link': '← Back',
     
     // Password page
@@ -943,6 +1024,20 @@ const translations = {
     'info-text-1': "Here's the thing - we're getting married! In Kigali, Rwanda on July 3, 2027!",
     'info-text-2': "So it's not this year, but next year. Since the combination of wedding + another continent can be a bit of a puzzle, we want to inform you well in advance so that everyone who wants to can join us in celebrating.",
     'info-text-3': 'To help us plan our little Rwandan adventure in the best possible way, it would be wonderful if you could fill out the interest form as soon as possible.',
+    'home-video-title': 'A message from us',
+    'schedule-friday-day': 'Friday 2/7',
+    'schedule-friday-event': 'Welcome evening',
+    'schedule-friday-place': 'TBA',
+    'schedule-friday-time': '17:00',
+    'schedule-saturday-day': 'Saturday 3/7',
+    'schedule-saturday-event': 'Wedding',
+    'schedule-saturday-place': 'Heaven Garden Rebero',
+    'schedule-saturday-time': '14:00',
+    'schedule-sunday-day': 'Sunday 4/7',
+    'schedule-sunday-event': 'Brunch',
+    'schedule-sunday-place': 'Kigali Serena Hotel',
+    'schedule-sunday-time': '10:00',
+    'schedule-button': 'Full schedule →',
     'cta-banner': 'Register your interest',
     'cta-symbols-desktop': 'ᯓ ✈︎ ',
     'cta-symbols-mobile': 'ᯓ ✈︎',
@@ -986,7 +1081,7 @@ const translations = {
     'page2-transport-text': "We'll be based in Kigali, Rwanda's capital. The easiest way to get there is via Kigali International Airport.<br><br>Many international airlines fly to Kigali, for example Turkish Airlines, Ethiopian Airlines, and KLM.<br><br>Check www.flygresor.se or another comparable site and choose the option that fits your travel plans and budget.",
 
     'page2-accommodation-title': 'Accommodation',
-    'page2-accommodation-text': "Our hope is that all our guests can stay together for the whole wedding weekend — we believe that will make the experience even more fun and memorable!<br><br>We are currently negotiating a very good hotel rate, so please bear with us while we finalize the details. As soon as everything is ready we will let you know so you can book. We hope to have all information ready by the end of August!",
+    'page2-accommodation-text': "Our hope is that all our guests can stay together for the whole wedding weekend — we believe that will make the experience even more fun and memorable!<br><br>We are currently negotiating a very good hotel rate, so please bear with us while we finalize the details. As soon as everything is ready we will let you know so you can book. We hope to have all information ready by the end of October!",
 
     'page2-section2-title': 'Accommodation',
     'page2-section2-text': 'Accommodation information...',
@@ -1016,6 +1111,43 @@ const translations = {
     'page3-security-link-text': 'Read more on the Swedish Ministry for Foreign Affairs website:',
     'page3-security-link': 'Sweden Abroad – Rwanda safety situation',
     'page3-gallery-title': 'This is what a holiday in Rwanda can look like!',
+    // FAQ
+    'faq-page-title': 'Questions you may have',
+    'faq-title': 'Questions you may have',
+    'faq-intro': 'Here are answers to some questions that may come up as you plan for the wedding and your trip to Rwanda.',
+    'faq-category-wedding': 'The wedding',
+    'faq-category-travel': 'The trip to Rwanda',
+    'faq-category-other': 'Other',
+    'faq-question-1': 'What is the schedule for the wedding weekend?',
+    'faq-answer-1': 'We are celebrating all weekend! Find the full schedule and more details here: <a href="/schema">Full schedule</a>.',
+    'faq-question-2': 'What is the dress code?',
+    'faq-answer-2': '<p>The wedding day includes both a traditional Rwandan ceremony and a Swedish wedding ceremony, and we would love for that to be reflected in what you wear! The dress code is lounge suit or traditional attire: a Rwandan mushanana or Swedish folk costume.</p><p>There is no specific dress code for the rest of the wedding weekend, so wear whatever makes you feel comfortable and dressed up!</p>',
+    'faq-question-3': 'What is Gusaba?',
+    'faq-answer-3': '<p>Gusaba is a traditional Rwandan ceremony where the two families formally meet and the bride’s hand in marriage is requested. Traditionally, it is an important part of a Rwandan wedding, with speeches, music, dancing, and symbolic gifts exchanged between the families.</p><p>For many of our guests, this will be their first time experiencing a Gusaba, so sit back and enjoy it!</p>',
+    'faq-question-4': 'When should I book my trip?',
+    'faq-answer-4': '<p>We recommend starting to keep an eye on flights around 6–9 months before the wedding. There is no need to book as soon as tickets are released, but try not to leave it until the last minute.</p><p>Flights from Sweden to Kigali usually have at least one stop, so compare different travel dates and routes.</p>',
+    'faq-question-5': 'When should I arrive?',
+    'faq-answer-5': '<p>The celebrations begin on Friday, July 2, so we recommend arriving in Kigali in time for the festivities.</p><p>If you can, feel free to arrive even earlier! That gives you time to recover from the journey and explore a little of Kigali before the wedding weekend begins.</p>',
+    'faq-question-6': 'Where should I stay?',
+    'faq-answer-6': '<p>We recommend staying in Kigali throughout the wedding weekend. We hope as many guests as possible can stay at the same hotel, making transportation easier and giving us more time to enjoy each other’s company between events.</p><p>We will share our recommended hotel, prices, and booking information later.</p>',
+    'faq-question-7': 'Do I need a visa?',
+    'faq-answer-7': '<p>Yes. As a Swedish citizen, you can either get a visa on arrival in Rwanda or apply online before your trip.</p><p>If you are also planning to visit Uganda or Kenya, you can instead apply for an East Africa Tourist Visa (EATV). It is valid for 90 days in Rwanda, Uganda, and Kenya, and lets you travel between the three countries on the same visa. The EATV can only be obtained on arrival.</p><p>You can apply for a visa and read more on <a href="https://support.irembo.gov.rw/en/support/solutions/articles/47001155415-how-to-apply-for-a-visa?utm_source=irembogov_web&amp;utm_medium=navbar_btn&amp;utm_campaign=KB_Visibility_On_IremboGov" target="_blank" rel="noopener noreferrer">Rwanda’s official immigration website</a>.</p>',
+    'faq-question-8': 'What vaccinations do I need?',
+    'faq-answer-8': '<p>Recommended vaccinations depend on several factors, including which vaccinations you have already had and whether you plan to travel elsewhere in the region.</p><p>For travelers coming directly from Sweden, proof of yellow fever vaccination is normally not required to enter Rwanda. Hepatitis A is among the vaccinations commonly recommended for travel in the region, and malaria is present in Rwanda.</p><p>We therefore recommend booking an appointment with a travel vaccination clinic well in advance so you can get advice tailored to your trip.</p>',
+    'faq-question-9': 'How do I get around Kigali?',
+    'faq-answer-9': '<p>Getting around Kigali is relatively easy and affordable. Hotels can help arrange taxis, and apps such as VW Move and Green Ride work much like Uber. It is useful to have a local SIM card for these apps, as drivers often call to confirm your pickup location.</p><p>Google Maps works well for getting around, but addresses are not always used in the same way as in Sweden. It can help to know the name of the hotel, restaurant, or place you are going to.</p><p>During the wedding weekend, we will arrange shared transportation to and from events where needed. More information will follow closer to the wedding.</p>',
+    'faq-question-10': 'What currency is used, and can I pay by card?',
+    'faq-answer-10': '<p>The currency in Rwanda is the Rwandan franc (RWF).</p><p>Cards are accepted at many hotels, restaurants, and larger shops in Kigali, but cash is still widely used, especially at smaller places and outside Kigali. ATMs are available in many parts of the city, so there is no need to exchange large amounts of money before your trip.</p><p>A good tip is simply to have both a card and some cash with you.</p>',
+    'faq-question-11': 'How do mobile phones and SIM cards work in Rwanda?',
+    'faq-answer-11': '<p>You can get a local SIM card at the airport when you arrive. MTN and Airtel are the main providers and offer prepaid SIM cards with mobile data. Bring your passport, as the SIM card must be registered, and you will also need cash.</p><p>If your phone supports eSIM, arranging one before your trip is another convenient option. You will have internet as soon as you land.</p><p>Wi-Fi is available at most hotels and many restaurants and cafés, but we recommend having mobile data during your trip. It makes everything from maps and taxis to staying in touch with the wedding group much easier.</p>',
+    'faq-question-12': 'Are children welcome?',
+    'faq-answer-12': 'Absolutely, children are very welcome! Whether you would like to make the trip a family holiday or take the opportunity to travel as a couple is entirely up to you. Do whatever suits you best!',
+    'faq-question-13': 'What can I do in Rwanda besides attending the wedding?',
+    'faq-answer-13': '<p>Lots! We hope many of you will take the opportunity to explore Rwanda or other parts of Africa while you are there.</p><p>We will collect our favorite tips for things to do, eat, and experience on the website!</p>',
+    'faq-question-14': 'What would you like as a wedding gift?',
+    'faq-answer-14': '<p>Making the journey all the way to Rwanda to celebrate with us is more than enough! We know the trip takes both time and money, so we truly do not expect any gifts.</p><p>If you would still like to give us something, we of course appreciate the thought! But since we would rather not squeeze more things into our suitcases for the journey home, a gift card for dinner, an experience, or a contribution toward future adventures would be easier. 😊</p>',
+    'faq-question-15': 'Who has the high score in The Kiss Hunt?',
+    'faq-answer-15': '<p>Good question. There is only one way to find out. 👀</p><p>The Kiss Hunt is hidden somewhere on the website. Find it, and your name might end up at the top of the leaderboard!</p>',
     // Rwanda intro paragraphs (match keys used in page3.html)
     'page3-section1-text 1': "In northeastern Rwanda, in the village of Rukara–Gahini, Bryan’s grandmother Olivia was born. She grew up surrounded by her large family and the everyday life of the village. Today, many of Bryan’s relatives still live in Rwanda, and like them, we are super excited to gather everyone we love for our wedding.",
     'page3-section1-text 2': 'We want to celebrate our love — and at the same time connect with Rwanda, which will soon become a natural part of our lives together.',
@@ -1093,6 +1225,7 @@ function translatePage() {
   updateFrontpageImages();
   // Byt bild på page1
   updatePage1Image();
+  updateSchemaImages();
   // Uppdatera mobila topplist-knappen
   syncHighscoreToggleLabel();
   if (document.getElementById('highScoreList') || document.getElementById('highScoreSheet')) {
@@ -1182,6 +1315,14 @@ function updatePage1Image() {
       ? page1Image.dataset.srcSvMobile
       : page1Image.dataset.srcSv;
   }
+}
+
+function updateSchemaImages() {
+  document.querySelectorAll('.schema-icon[data-src-sv][data-src-en], .schema-safari-image[data-src-sv][data-src-en]').forEach(image => {
+    const isEnglish = currentLanguage === 'en';
+    image.src = isEnglish ? image.dataset.srcEn : image.dataset.srcSv;
+    image.alt = isEnglish ? image.dataset.altEn : image.dataset.altSv;
+  });
 }
 
 // === Uppdatera favicon och busta cache ===

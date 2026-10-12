@@ -26,14 +26,20 @@
       '/about-rwanda': '/page3.html',
       '/about-rwanda/': '/page3.html',
       '/form': '/form.html',
-      '/form/': '/form.html'
+      '/form/': '/form.html',
+      '/faq': '/faq.html',
+      '/faq/': '/faq.html',
+      '/schema': '/schema.html',
+      '/schema/': '/schema.html',
+      '/schedule': '/schema.html',
+      '/schedule/': '/schema.html'
     };
     
     const targetFile = redirects[path];
     
     if (targetFile) {
       // Sätt språk baserat på URL:en
-      const englishUrls = ['/about-us', '/about-us/', '/travel-and-accommodation', '/travel-and-accommodation/', '/about-rwanda', '/about-rwanda/', '/form', '/form/'];
+      const englishUrls = ['/about-us', '/about-us/', '/travel-and-accommodation', '/travel-and-accommodation/', '/about-rwanda', '/about-rwanda/', '/form', '/form/', '/faq', '/faq/', '/schedule', '/schedule/'];
       if (englishUrls.includes(path)) {
         localStorage.setItem('language', 'en');
       } else {

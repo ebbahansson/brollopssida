@@ -29,10 +29,12 @@
         </div>
         <ul>
           <li><a href="/" data-i18n="nav-home">Hem</a></li>
+          <li><a href="/schema" data-i18n="nav-schedule">Schema</a></li>
           <li><a href="/om-oss" data-i18n="nav-about">Om oss</a></li>
           <li><a href="/resa-och-boende" data-i18n="nav-travel">Resa och boende</a></li>
           <li><a href="/om-rwanda" data-i18n="nav-rwanda">Om Rwanda</a></li>
           <li><a href="/formular" data-i18n="nav-form">Formulär</a></li>
+          <li><a href="/faq" data-i18n="nav-faq">Frågor och svar</a></li>
         </ul>
         <button class="language-btn" id="languageBtn" aria-label="Byt språk">
           <span class="globe-icon">🌏︎</span>
@@ -44,8 +46,6 @@
   </header>
 
   <!-- ========================================
-       HERO SEKTION
-       ======================================== -->
   <section class="page-hero">
     <img src="bilder/Boende och resa/12.jpg" alt="Resa och boende" class="page-hero-image">
     <h1 class="page-hero-title" data-i18n="page2-hero-title">Resa och boende</h1>
@@ -54,10 +54,10 @@
   <!-- ========================================
        INNEHÅLL (Två rader: bild + text, alternerande)
        ======================================== -->
-  <main class="page-content">
+  <main class="page-content travel-page-content">
 
     <!-- Rad 1: Bild vänster, text höger -->
-    <section class="content-row">
+    <section class="content-row travel-feature">
       <div class="content-image">
         <img src="bilder/sida2/kigali_airport.png" alt="Ta sig dit - bild" />
       </div>
@@ -70,24 +70,24 @@
     <div class="wave-divider" aria-hidden="true"></div>
 
     <!-- Rad 2: Bild höger, text vänster -->
-    <section class="content-row reverse">
+    <section class="content-row reverse travel-feature">
       <div class="content-text">
         <h2 data-i18n="page2-accommodation-title">Boende</h2>
         <!-- Text: använd data-i18n för att översätta via script.js -->
-        <p data-i18n="page2-accommodation-text">Vår stora förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen – vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i slutet av augusti!</p>
+        <p data-i18n="page2-accommodation-text">Vår förhoppning är att alla våra gäster ska kunna bo tillsammans under hela bröllopshelgen. Vi tror att det kommer göra upplevelsen ännu roligare och mer minnesvärd!<br><br>Just nu håller vi på att förhandla fram ett riktigt bra pris på ett hotell, så håll ut lite till medan vi finslipar detaljerna. Så snart allt är klart kommer vi att meddela er så att ni kan boka. Vi hoppas ha all information redo i oktober!</p>
       </div>
       <div class="content-image">
         <img src="bilder/sida2/serena.png" alt="Boende - bild" />
       </div>
     </section>
 
+    <!-- Dekorativ vågdivider -->
+    <div class="wave-divider" aria-hidden="true"></div>
+
     <!-- Vit blomma clipart -->
     <div style="text-align: center; margin: 1rem 0; display: block; width: 100%;">
       <img src="bilder/Clipart/2/vit_blomma_2.png" alt="Vit blomma" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
     </div>
-
-    <!-- Dekorativ vågdivider -->
-    <div class="wave-divider" aria-hidden="true"></div>
 
   </main>
 
