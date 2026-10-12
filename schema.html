@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="schema-page-title">Schema</title>
+  <link id="favicon" rel="icon" type="image/png" href="bilder/Favicon/favicon_apa.png">
+  <link rel="apple-touch-icon" href="bilder/Favicon/favicon_apa.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="schema-page">
+  <header class="page-header" id="pageHeader">
+    <a href="/">
+      <img src="bilder/header/Bryan_Ebba.png" alt="Logga" class="page-header-logo">
+    </a>
+    <div class="header-controls">
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Öppna meny">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
+        <div class="menu-logo">
+          <img src="bilder/header/Bryan_Ebba.png" alt="Bryan & Ebba logga">
+        </div>
+        <ul>
+          <li><a href="/" data-i18n="nav-home">Hem</a></li>
+          <li><a href="/schema" data-i18n="nav-schedule">Schema</a></li>
+          <li><a href="/om-oss" data-i18n="nav-about">Om oss</a></li>
+          <li><a href="/resa-och-boende" data-i18n="nav-travel">Resa och boende</a></li>
+          <li><a href="/om-rwanda" data-i18n="nav-rwanda">Om Rwanda</a></li>
+          <li><a href="/formular" data-i18n="nav-form">Formulär</a></li>
+          <li><a href="/faq" data-i18n="nav-faq">Frågor och svar</a></li>
+        </ul>
+        <button class="language-btn" id="languageBtn" aria-label="Byt språk">
+          <span class="globe-icon">🌏︎</span>
+          <span class="lang-text">EN</span>
+        </button>
+      </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
+  </header>
+
+  <main class="schema-page-content">
+    <section class="schema-overview" aria-labelledby="schemaTitle">
+      <h1 class="schema-intro" id="schemaTitle" data-i18n="schema-title">Helgens schema</h1>
+      <p class="schema-description" data-i18n="schema-intro">Vi är så glada att ni vill fira tillsammans med oss. Här är hela schemat för helgens aktiviteter:</p>
+
+      <div class="schema-days">
+        <article class="schema-day">
+          <img class="schema-icon" src="bilder/schema/SV/välkomstkväll.png" data-src-sv="bilder/schema/SV/välkomstkväll.png" data-src-en="bilder/schema/ENG/Welcomenight.png" data-alt-sv="Illustration för välkomstkvällen" data-alt-en="Welcome evening illustration" alt="Illustration för välkomstkvällen">
+          <h2 data-i18n="schedule-friday-event">Välkomstkväll</h2>
+          <p class="schema-time"><time data-i18n="schedule-friday-time">17:00</time></p>
+          <p class="schema-location" data-i18n="schedule-friday-place">TBA</p>
+          <p class="schema-attire" data-i18n="schema-attire-welcome">Klädsel: Avslappnat och festligt – kom som du är!</p>
+        </article>
+
+        <article class="schema-day">
+          <img class="schema-icon" src="bilder/schema/SV/brollopsdag.png" data-src-sv="bilder/schema/SV/brollopsdag.png" data-src-en="bilder/schema/ENG/weddingday.png" data-alt-sv="Illustration för bröllopsdagen" data-alt-en="Wedding day illustration" alt="Illustration för bröllopsdagen">
+          <h2 data-i18n="schedule-saturday-event">Bröllop</h2>
+          <p class="schema-time"><time data-i18n="schedule-saturday-time">14:00</time></p>
+          <p class="schema-location" data-i18n="schedule-saturday-place">Heaven Garden Rebero</p>
+          <p class="schema-attire" data-i18n="schema-attire-wedding">Klädsel: Kavaj eller traditionell klädsel</p>
+        </article>
+
+        <article class="schema-day">
+          <img class="schema-icon" src="bilder/schema/SV/brunch.png" data-src-sv="bilder/schema/SV/brunch.png" data-src-en="bilder/schema/ENG/brunch.png" data-alt-sv="Illustration för brunchen" data-alt-en="Brunch illustration" alt="Illustration för brunchen">
+          <h2 data-i18n="schedule-sunday-event">Brunch</h2>
+          <p class="schema-time"><time data-i18n="schedule-sunday-time">10:00</time></p>
+          <p class="schema-location" data-i18n="schedule-sunday-place">Kigali Serena Hotel</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="wave-divider schema-safari-divider" aria-hidden="true"></div>
+
+    <section class="schema-safari" aria-labelledby="schemaSafariTitle">
+      <img class="schema-safari-image" src="bilder/schema/SV/safari.png" data-src-sv="bilder/schema/SV/safari.png" data-src-en="bilder/schema/ENG/safari.png" data-alt-sv="Illustration av en frivillig safari i Rwanda" data-alt-en="Illustration of an optional safari in Rwanda" alt="Illustration av en frivillig safari i Rwanda">
+      <div class="schema-safari-copy">
+        <h2 id="schemaSafariTitle" data-i18n="schema-safari-title">Följ med på safari</h2>
+        <p data-i18n="schema-safari-text">Efter bröllopshelgen finns möjlighet att följa med på safari i Rwanda. Det är helt frivilligt, så du kan självklart vara med och fira bröllopet utan att följa med på safarin.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <button class="easter-egg-trigger" id="easterEggBtn" aria-label="Hemligt spel">
+      <img src="bilder/apa/minut_sv_v.png" alt="Hemlig bild" class="ape-sv" />
+      <img src="bilder/apa/minut_en_v.png" alt="Secret image" class="ape-en" style="display: none;" />
+    </button>
+  </footer>
+
+  <div id="easterEggPopup" class="egg-overlay" aria-hidden="true">
+    <div class="egg-box" role="dialog" aria-modal="true" aria-labelledby="eggTitle">
+      <button class="egg-close" type="button" aria-label="Stäng" id="eggCloseBtn">✕</button>
+      <div id="startScreen">
+        <h1 style="font-family: 'Kage2', cursive; color: #f7d240; font-size: 3rem; margin: 0 0 0.5rem 0;" data-i18n="game-title">Kyssjakten 💋</h1>
+        <h2 id="eggTitle" style="font-family: 'Codesaver', monospace; font-size: 1.5rem; color: #fff5d6;" data-i18n="game-subtitle">Hur många kyssar kan Ebba få?</h2>
+        <p style="font-family: 'Codesaver', monospace; font-size: 0.85rem; color: #fff5d6; margin: 1rem auto; line-height: 1.4; max-width: 500px; opacity: 0.9;" data-i18n="game-instructions">Styr Bryan till Ebba med piltangenterna (eller svajpa på mobil). Samla kyssar och undvik att krocka med väggarna eller dig själv!</p>
+        <button id="startGameBtn" class="start-btn" data-i18n="game-start">Starta</button>
+      </div>
+      <div id="gameScreen" style="display:none;">
+        <div class="game-top">
+          <p id="score" class="score">Kyssar: 0</p>
+          <button id="restartBtn" class="restart-btn" type="button" style="display:none;" data-i18n="game-restart">Spela igen</button>
+        </div>
+        <div class="game-content-wrapper">
+          <canvas id="snakeCanvas"></canvas>
+          <div class="game-right-sidebar">
+            <p class="hint" data-i18n="game-hint">Styr Bryan med hjälp av piltangenterna!</p>
+            <div id="highScoreList" class="highscore-container"></div>
+          </div>
+        </div>
+        <div class="mobile-controls" id="mobileControls">
+          <button class="arrow-btn arrow-up" id="arrowUp" aria-label="Upp">▲</button>
+          <div class="arrow-row">
+            <button class="arrow-btn arrow-left" id="arrowLeft" aria-label="Vänster">◄</button>
+            <button class="arrow-btn arrow-down" id="arrowDown" aria-label="Ner">▼</button>
+            <button class="arrow-btn arrow-right" id="arrowRight" aria-label="Höger">►</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

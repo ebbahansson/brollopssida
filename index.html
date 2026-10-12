@@ -67,10 +67,13 @@
             <img src="bilder/header/Bryan_Ebba.png" alt="Bryan & Ebba logga">
           </div>
           <ul>
+            <li><a href="/" data-i18n="nav-home">Hem</a></li>
+            <li><a href="/schema" data-i18n="nav-schedule">Schema</a></li>
             <li><a href="/om-oss" data-i18n="nav-about">Om oss</a></li>
             <li><a href="/resa-och-boende" data-i18n="nav-travel">Resa och boende</a></li>
             <li><a href="/om-rwanda" data-i18n="nav-rwanda">Om Rwanda</a></li>
             <li><a href="/formular" data-i18n="nav-form">Formulär</a></li>
+            <li><a href="/faq" data-i18n="nav-faq">Frågor och svar</a></li>
           </ul>
           <button class="language-btn" id="menuLanguageBtn" aria-label="Byt språk">
             <span class="globe-icon">🌏︎</span>
@@ -96,9 +99,37 @@
        ======================================== -->
   <div class="frontpage-date-location" data-i18n="date-location">3 JULI 2027  |  KIGALI, RWANDA</div>
   <!-- ========================================
+       ÖVERSIKTSSCHEMA FÖR BRÖLLOPSHELGEN
+       ======================================== -->
+  <section class="weekend-schedule" aria-label="Översikt över bröllopshelgen">
+    <div class="schedule-list">
+      <div class="schedule-row">
+        <h2 data-i18n="schedule-friday-day">Fredag 2/7</h2>
+        <p data-i18n="schedule-friday-event">Välkomstkväll</p>
+        <p data-i18n="schedule-friday-place">TBA</p>
+        <time data-i18n="schedule-friday-time">17:00</time>
+      </div>
+      <div class="schedule-row">
+        <h2 data-i18n="schedule-saturday-day">Lördag 3/7</h2>
+        <p data-i18n="schedule-saturday-event">Bröllop</p>
+        <p data-i18n="schedule-saturday-place">Heaven Garden Rebero</p>
+        <time data-i18n="schedule-saturday-time">14:00</time>
+      </div>
+      <div class="schedule-row">
+        <h2 data-i18n="schedule-sunday-day">Söndag 4/7</h2>
+        <p data-i18n="schedule-sunday-event">Brunch</p>
+        <p data-i18n="schedule-sunday-place">Kigali Serena Hotel</p>
+        <time data-i18n="schedule-sunday-time">10:00</time>
+      </div>
+    </div>
+    <a class="schedule-placeholder" href="/schema" data-i18n="schedule-button">Hela schemat →</a>
+  </section>
+
+  <div class="wave-divider schedule-wave" aria-hidden="true"></div>
+
+  <!-- ========================================
        INFORMATIONSSEKTION - TRE TEXTBLOCK
        ======================================== -->
-
   <section class="info-section">
     <div class="info-block">
       <p data-i18n="info-text-1">Så här ligger det till - vi ska gifta oss! I Kigali, Rwanda, den 3 juli 2027!</p>
@@ -106,6 +137,22 @@
       <p data-i18n="info-text-3">För att vi ska kunna planera vårt lilla rwandiska äventyr på bästa sätt vore det underbart om ni fyllde i intresseanmälan senast <strong>31 mars 2026</strong>.</p>
     </div>
   </section>
+
+  <section class="home-video" aria-labelledby="homeVideoTitle">
+    <h2 id="homeVideoTitle" data-i18n="home-video-title">En hälsning från oss</h2>
+    <div class="home-video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/SQxcqzMuYgk"
+        title="Bryan and Ebba's wedding video"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true"></div>
 
   <!-- ========================================
        BILDLÄNKAR - NAVIGATION TILL UNDERSIDOR
