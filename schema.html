@@ -78,7 +78,28 @@
       <img class="schema-safari-image" src="bilder/schema/SV/safari.png" data-src-sv="bilder/schema/SV/safari.png" data-src-en="bilder/schema/ENG/safari.png" data-alt-sv="Illustration av en frivillig safari i Rwanda" data-alt-en="Illustration of an optional safari in Rwanda" alt="Illustration av en frivillig safari i Rwanda">
       <div class="schema-safari-copy">
         <h2 id="schemaSafariTitle" data-i18n="schema-safari-title">Följ med på safari</h2>
-        <p data-i18n="schema-safari-text">Efter bröllopshelgen finns möjlighet att följa med på safari i Rwanda. Det är helt frivilligt, så du kan självklart vara med och fira bröllopet utan att följa med på safarin.</p>
+        <div class="schema-safari-text" data-i18n="schema-safari-text">
+          <p>Vill du förlänga Rwandaäventyret lite till? Efter bröllopshelgen planerar vi att åka på safari i Akagera National Park, och självklart får alla som vill följa med!</p>
+          <p>Vi tänker åka iväg under måndagen 5 juli och vara borta till tisdag eller eventuellt onsdag. Nationalparken ligger cirka 3–4 timmar från Kigali och här finns möjlighet att se allt från zebror och giraffer till elefanter, lejon och flodhästar!</p>
+          <p>Safarin är helt frivillig och inget som ingår i själva bröllopshelgen. Vi håller fortfarande på att planera upplägget, så mer information om kostnader, boende och andra praktiska detaljer kommer längre fram.</p>
+          <p><strong>Är du sugen på att följa med?</strong> Skriv upp dig på intresselistan så skickar vi mer information via mejl när vi vet mer.</p>
+        </div>
+        <form class="schema-safari-form" id="safariSignupForm">
+          <label class="schema-safari-field" for="safariSignupName">
+            <span class="schema-safari-label" data-i18n="schema-safari-signup-name">Namn</span>
+            <input id="safariSignupName" name="name" type="text" autocomplete="name" placeholder="Namn" data-i18n="schema-safari-signup-name" required>
+          </label>
+          <label class="schema-safari-field" for="safariSignupEmail">
+            <span class="schema-safari-label" data-i18n="schema-safari-signup-email">E-postadress</span>
+            <input id="safariSignupEmail" name="email" type="email" autocomplete="email" placeholder="E-postadress" data-i18n="schema-safari-signup-email" required>
+          </label>
+          <label class="schema-safari-field" for="safariSignupPeople">
+            <span class="schema-safari-label" data-i18n="schema-safari-signup-people">Hur många personer är ni?</span>
+            <input id="safariSignupPeople" name="people" type="number" min="1" step="1" inputmode="numeric" placeholder="Hur många personer är ni?" data-i18n="schema-safari-signup-people" required>
+          </label>
+          <button class="schema-safari-submit" type="submit" data-i18n="schema-safari-signup-submit">Skicka</button>
+          <p class="schema-safari-status" id="safariSignupStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>

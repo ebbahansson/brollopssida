@@ -32,6 +32,8 @@ const GOOGLE_SHEETS_CONFIG = {
   sheetName: 'Highscores'
 };
 
+const SAFARI_SIGNUP_URL = 'https://script.google.com/macros/s/AKfycbxTsC7-gngtxECCMlJ3IPVKlnnQUni4wO1aS4-vJeyFfHYzf7vl6TrmA6rPacatw8k1iQ/exec';
+
 const ScoreStorage = {
   // Hämta topplista
   async getHighScores() {
@@ -835,7 +837,15 @@ const translations = {
     'schema-attire-welcome': 'Klädsel: Avslappnat och festligt – kom som du är!',
     'schema-attire-wedding': 'Klädsel: Kavaj eller traditionell klädsel',
     'schema-safari-title': 'Följ med på safari',
-    'schema-safari-text': 'Efter bröllopshelgen finns möjlighet att följa med på safari i Rwanda. Det är helt frivilligt, så du kan självklart vara med och fira bröllopet utan att följa med på safarin.',
+    'schema-safari-text': '<p>Vill du förlänga Rwandaäventyret lite till? Efter bröllopshelgen planerar vi att åka på safari i Akagera National Park, och självklart får alla som vill följa med!</p><p>Vi tänker åka iväg under måndagen 5 juli och vara borta till tisdag eller eventuellt onsdag. Nationalparken ligger cirka 3–4 timmar från Kigali och här finns möjlighet att se allt från zebror och giraffer till elefanter, lejon och flodhästar!</p><p>Safarin är helt frivillig och inget som ingår i själva bröllopshelgen. Vi håller fortfarande på att planera upplägget, så mer information om kostnader, boende och andra praktiska detaljer kommer längre fram.</p><p><strong>Är du sugen på att följa med?</strong> Skriv upp dig på intresselistan så skickar vi mer information via mejl när vi vet mer.</p>',
+    'schema-safari-signup-name': 'Namn',
+    'schema-safari-signup-email': 'E-postadress',
+    'schema-safari-signup-people': 'Hur många personer är ni?',
+    'schema-safari-signup-submit': 'Skicka',
+    'schema-safari-signup-sending': 'Skickar…',
+    'schema-safari-signup-success': 'Tack! Ni är uppskrivna för mer information om safarin.',
+    'schema-safari-signup-duplicate': 'Den e-postadressen finns redan uppskriven.',
+    'schema-safari-signup-error': 'Det gick inte att skicka anmälan. Försök igen senare.',
     'back-link': '← Tillbaka',
     
     // Lösenordssida
@@ -1011,7 +1021,15 @@ const translations = {
     'schema-attire-welcome': 'Attire: Relaxed and festive — come as you are!',
     'schema-attire-wedding': 'Attire: Lounge suit or traditional attire',
     'schema-safari-title': 'Join us on safari',
-    'schema-safari-text': 'After the wedding weekend, you can join us for a safari in Rwanda. It is completely optional, so you are very welcome to celebrate with us even if you do not join the safari.',
+    'schema-safari-text': '<p>Would you like to extend your Rwanda adventure a little longer? After the wedding weekend, we are planning a safari in Akagera National Park, and everyone who would like to is welcome to join us!</p><p>We are planning to leave on Monday, July 5 and be away until Tuesday, or possibly Wednesday. The national park is about 3–4 hours from Kigali, and there is a chance to see everything from zebras and giraffes to elephants, lions, and hippos!</p><p>The safari is completely optional and is not part of the wedding weekend itself. We are still planning the details, so more information about costs, accommodation, and other practical details will follow later.</p><p><strong>Would you like to join us?</strong> Sign up to the interest list, and we will email you more information once we know more.</p>',
+    'schema-safari-signup-name': 'Name',
+    'schema-safari-signup-email': 'Email address',
+    'schema-safari-signup-people': 'How many people are in your group?',
+    'schema-safari-signup-submit': 'Sign me up',
+    'schema-safari-signup-sending': 'Sending…',
+    'schema-safari-signup-success': 'Thanks! You are signed up for more information about the safari.',
+    'schema-safari-signup-duplicate': 'That email address is already on the list.',
+    'schema-safari-signup-error': 'We could not submit your signup. Please try again later.',
     'back-link': '← Back',
     
     // Password page
@@ -1324,6 +1342,54 @@ function updateSchemaImages() {
     image.alt = isEnglish ? image.dataset.altEn : image.dataset.altSv;
   });
 }
+
+function initSafariSignup() {
+  const form = document.getElementById('safariSignupForm');
+  if (!form) return;
+
+  const submitButton = form.querySelector('.schema-safari-submit');
+  const status = document.getElementById('safariSignupStatus');
+  const getText = key => translations[currentLanguage]?.[key] || translations.sv[key];
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const payload = {
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      people: Number(form.elements.people.value)
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = getText('schema-safari-signup-sending');
+    status.textContent = '';
+
+    try {
+      const body = new URLSearchParams();
+      body.append('data', JSON.stringify(payload));
+
+      const response = await fetch(SAFARI_SIGNUP_URL, { method: 'POST', body });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Safari signup failed');
+      }
+
+      status.textContent = getText(result.duplicate
+        ? 'schema-safari-signup-duplicate'
+        : 'schema-safari-signup-success');
+      if (!result.duplicate) form.reset();
+    } catch (error) {
+      console.error('Safari signup failed:', error);
+      status.textContent = getText('schema-safari-signup-error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = getText('schema-safari-signup-submit');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initSafariSignup);
 
 // === Uppdatera favicon och busta cache ===
 function updateFavicon() {
