@@ -366,7 +366,7 @@ body {
   max-width: 90vw;
   max-height: 0;
   overflow: hidden;
-  background: #2E5339;
+  background: #304232;
   transition: max-height .5s ease, padding .5s ease;
   z-index: 10990;
   padding: 0 2.5rem;
@@ -632,7 +632,7 @@ body {
     width: 100vw;
     max-width: none;
     height: 100dvh;
-    background: #465946;
+    background: #304232;
     z-index: 12000;
     display: flex;
     flex-direction: column;
@@ -1726,7 +1726,7 @@ body {
 .page-header {
   position: sticky;
   top: 0;
-  background-color: #465946;
+  background-color: #304232;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -1736,7 +1736,38 @@ body {
 }
 
 .page-header.scrolled {
-  background-color: rgba(70, 89, 70, 0.5);
+  background-color: rgba(48, 66, 50, 0.5);
+}
+
+body:not(.frontpage) .page-header {
+  isolation: isolate;
+  min-height: clamp(100px, 13vw, 150px);
+  background-color: transparent;
+}
+
+body:not(.frontpage) .page-header::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: clamp(100px, 13vw, 150px);
+  background-color: #304232;
+  content: '';
+  pointer-events: none;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 176 C20 176 40 140 60 140 C80 140 100 176 120 176 V0H0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 176 C20 176 40 140 60 140 C80 140 100 176 120 176 V0H0Z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 120px 100%;
+  mask-size: 120px 100%;
+  transition: background-color 0.3s ease;
+}
+
+body:not(.frontpage) .page-header.scrolled {
+  background-color: transparent;
+}
+
+body:not(.frontpage) .page-header.scrolled::before {
+  background-color: rgba(48, 66, 50, 0.5);
 }
 
 .page-header a:has(.page-header-logo) {
@@ -2475,7 +2506,7 @@ body {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 1rem 4rem 5rem;
+  padding: 2rem 4rem 5rem;
 }
 
 .schema-overview {
