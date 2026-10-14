@@ -2537,6 +2537,7 @@ body {
 
 .schema-time,
 .schema-location,
+.schema-transport,
 .schema-attire {
   margin: 0;
   color: #fff5d6;
@@ -2574,6 +2575,7 @@ body {
   text-transform: none;
 }
 
+.schema-transport,
 .schema-attire {
   margin-top: 0.6rem;
   color: rgba(255, 245, 214, 0.78);
