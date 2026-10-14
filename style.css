@@ -2545,8 +2545,8 @@ body {
 
 .schema-icon {
   display: block;
-  width: 256px;
-  height: 256px;
+  width: min(290px, 100%);
+  aspect-ratio: 1;
   margin: 1rem 0 0.6rem;
   object-fit: contain;
 }
@@ -2730,10 +2730,9 @@ body {
 
   .schema-day {
     padding: 1rem;
-    border: 1.5px solid rgba(255, 245, 214, 0.65);
-    border-radius: 8px;
+    border: 0;
     background: transparent;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
   }
 
   .schema-day + .schema-day {
