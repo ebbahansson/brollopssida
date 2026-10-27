@@ -450,6 +450,10 @@ body {
   font-weight: 400;
 }
 .content-text p { font-family: 'Codesaver', monospace; color: #fff5d6; margin: 0 0 0.8rem 0; font-size: 1.05rem; line-height: 1.45; }
+.travel-page-content .content-text a {
+  color: inherit;
+  text-decoration: underline;
+}
 
 /* ========================================
    RESA OCH BOENDE - REN EDITORIAL LAYOUT
