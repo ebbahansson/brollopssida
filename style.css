@@ -2606,10 +2606,19 @@ body:not(.frontpage) .page-header.scrolled::before {
   text-transform: none;
 }
 
+.schema-detail {
+  max-width: 36ch;
+  margin: 0.8rem 0 0;
+  color: rgba(255, 245, 214, 0.9);
+  font-family: 'Codesaver', monospace;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .schema-transport,
 .schema-attire {
   margin-top: 0.6rem;
-  color: rgba(255, 245, 214, 0.78);
+  color: #f7d240;
   font-size: 0.9rem;
   font-weight: 400;
 }
